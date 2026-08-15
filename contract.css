@@ -8,13 +8,11 @@
   --brown-red-dark: #3f211e;
   --navy: #111d2d;
   --navy-light: #1d3048;
-
   --cream: #f7f3ed;
   --white: #ffffff;
   --text: #202020;
   --text-light: #707070;
   --border: #ddd6ce;
-
   --shadow: 0 15px 40px rgba(17, 29, 45, 0.08);
 }
 
@@ -61,7 +59,7 @@ body {
   top: 0;
   z-index: 100;
 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .contract-logo {
@@ -70,6 +68,7 @@ body {
 
   font-size: 25px;
   font-weight: 900;
+
   letter-spacing: 0.08em;
 }
 
@@ -78,7 +77,7 @@ body {
 }
 
 .document-label {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
 
   font-size: 11px;
   font-weight: 700;
@@ -93,13 +92,9 @@ body {
 
 .document-page {
   width: min(1000px, 92%);
+
   margin: 70px auto 100px;
 }
-
-
-/* ==================================================
-   DOCUMENT HEAD
-================================================== */
 
 .document-head {
   margin-bottom: 35px;
@@ -148,7 +143,7 @@ body {
 
   box-shadow: var(--shadow);
 
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 
@@ -174,7 +169,7 @@ body {
 
 
 /* ==================================================
-   ARTICLES
+   CONTRACT / TERMS ARTICLES
 ================================================== */
 
 article {
@@ -321,7 +316,7 @@ article p {
 .input-group input:focus {
   border-color: var(--brown-red);
 
-  box-shadow: 0 0 0 3px rgba(91,47,42,0.08);
+  box-shadow: 0 0 0 3px rgba(91, 47, 42, 0.08);
 }
 
 
@@ -379,7 +374,7 @@ article p {
 
   color: white;
 
-  box-shadow: 0 15px 40px rgba(17,29,45,0.15);
+  box-shadow: 0 15px 40px rgba(17, 29, 45, 0.15);
 }
 
 .agreement-check {
@@ -448,7 +443,7 @@ article p {
 .agreement-note {
   text-align: center;
 
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
 
   font-size: 11px;
 
@@ -611,13 +606,127 @@ article p {
 
 
 /* ==================================================
+   HOME MENU
+================================================== */
+
+.menu-grid {
+  display: grid;
+
+  gap: 15px;
+}
+
+.menu-card {
+  display: grid;
+
+  grid-template-columns: 60px 1fr 30px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 25px;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  transition: 0.25s;
+
+  color: var(--text);
+}
+
+.menu-card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--brown-red);
+
+  box-shadow: 0 12px 30px rgba(17, 29, 45, 0.08);
+}
+
+.menu-number {
+  font-size: 22px;
+
+  font-weight: 900;
+
+  color: var(--brown-red);
+}
+
+.menu-label {
+  color: var(--brown-red);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  margin-bottom: 3px;
+}
+
+.menu-card h2 {
+  color: var(--navy);
+
+  font-size: 20px;
+
+  margin-bottom: 3px;
+}
+
+.menu-card span {
+  color: var(--text-light);
+
+  font-size: 12px;
+}
+
+.menu-card strong {
+  color: var(--brown-red);
+
+  font-size: 24px;
+
+  text-align: right;
+}
+
+
+/* ==================================================
+   SYSTEM NOTE
+================================================== */
+
+.system-note {
+  text-align: center;
+
+  margin-top: 25px;
+}
+
+.system-note span {
+  color: var(--brown-red);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+.system-note p {
+  color: var(--text-light);
+
+  font-size: 11px;
+
+  margin-top: 5px;
+}
+
+
+/* ==================================================
    FOOTER
 ================================================== */
 
 .contract-footer {
   background: var(--navy);
 
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
 
   text-align: center;
 
@@ -723,6 +832,22 @@ article p {
 
   .agreement-check label {
     font-size: 13px;
+  }
+
+  .menu-card {
+    grid-template-columns: 45px 1fr 25px;
+
+    gap: 12px;
+
+    padding: 20px 16px;
+  }
+
+  .menu-number {
+    font-size: 18px;
+  }
+
+  .menu-card h2 {
+    font-size: 17px;
   }
 
 }
