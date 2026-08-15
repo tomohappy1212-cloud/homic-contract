@@ -10,11 +10,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>HOMIC｜お見積り</title>
+  <title>HOMIC｜お見積り・お支払い</title>
 
   <meta
     name="description"
-    content="HOMIC Web制作サービスのお見積りページです。"
+    content="HOMIC Web制作サービスのお見積り・お支払い確認ページです。"
   >
 
   <link
@@ -71,7 +71,7 @@
 
 
   <!-- =========================
-       CUSTOMER INFO
+       CUSTOMER
   ========================== -->
 
   <section class="document-card">
@@ -79,55 +79,404 @@
 
     <div class="notice">
 
-      HOMICでは、お客様の目的やご希望に合わせて
-      3つの基本プランをご用意しています。
+      お客様のご希望に合わせてプランと
+      オプションを選択してください。
 
       <br>
 
-      下記の料金は基本料金です。
-      内容によって追加料金が発生する場合があります。
+      選択内容に応じて総支払額が自動計算されます。
+
+      <br>
+
+      金額をご確認のうえ、
+      PayPayなどの方法でお支払いください。
 
     </div>
 
 
 
-    <div class="estimate-top">
+    <!-- =========================
+         CUSTOMER INFO
+    ========================== -->
+
+    <div class="input-grid">
 
 
-      <div>
+      <div class="input-group">
 
-        <span>
+        <label for="customerName">
           お客様名
-        </span>
+        </label>
 
-        <strong id="estimateCustomerName">
-          —
-        </strong>
+        <input
+          type="text"
+          id="customerName"
+          placeholder="例：山田 太郎"
+        >
 
       </div>
 
 
-      <div>
+      <div class="input-group">
 
-        <span>
+        <label for="shopName">
           店舗・会社名
-        </span>
+        </label>
 
-        <strong id="estimateShopName">
-          —
-        </strong>
+        <input
+          type="text"
+          id="shopName"
+          placeholder="例：HOMIC CAFE"
+        >
 
       </div>
+
+
+      <div class="input-group full">
+
+        <label for="customerEmail">
+          メールアドレス
+        </label>
+
+        <input
+          type="email"
+          id="customerEmail"
+          placeholder="例：example@email.com"
+        >
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         PLAN
+    ========================== -->
+
+    <div class="estimate-section">
+
+
+      <div class="estimate-section-title">
+
+        <p>
+          STEP 01
+        </p>
+
+        <h2>
+          プランを選択
+        </h2>
+
+      </div>
+
+
+
+      <div class="plan-select-grid">
+
+
+        <label class="select-plan">
+
+          <input
+            type="radio"
+            name="plan"
+            value="10000"
+            data-plan="STARTER"
+          >
+
+          <div>
+
+            <span>
+              STARTER
+            </span>
+
+            <strong>
+              10,000円〜
+            </strong>
+
+            <p>
+              シンプルな1ページサイト
+            </p>
+
+          </div>
+
+        </label>
+
+
+
+        <label class="select-plan">
+
+          <input
+            type="radio"
+            name="plan"
+            value="30000"
+            data-plan="STANDARD"
+          >
+
+          <div>
+
+            <span>
+              STANDARD
+            </span>
+
+            <strong>
+              30,000円〜
+            </strong>
+
+            <p>
+              3〜5ページのサイト
+            </p>
+
+          </div>
+
+        </label>
+
+
+
+        <label class="select-plan">
+
+          <input
+            type="radio"
+            name="plan"
+            value="50000"
+            data-plan="CUSTOM"
+          >
+
+          <div>
+
+            <span>
+              CUSTOM
+            </span>
+
+            <strong>
+              50,000円〜
+            </strong>
+
+            <p>
+              こだわり・特殊機能対応
+            </p>
+
+          </div>
+
+        </label>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         OPTIONS
+    ========================== -->
+
+    <div class="estimate-section">
+
+
+      <div class="estimate-section-title">
+
+        <p>
+          STEP 02
+        </p>
+
+        <h2>
+          オプション
+        </h2>
+
+      </div>
+
+
+
+      <div class="option-list">
+
+
+        <label class="option-item">
+
+          <input
+            type="checkbox"
+            class="option"
+            value="5000"
+            data-name="追加ページ"
+          >
+
+          <span>
+            追加ページ
+          </span>
+
+          <strong>
+            +5,000円
+          </strong>
+
+        </label>
+
+
+
+        <label class="option-item">
+
+          <input
+            type="checkbox"
+            class="option"
+            value="5000"
+            data-name="追加修正"
+          >
+
+          <span>
+            追加修正
+          </span>
+
+          <strong>
+            +5,000円
+          </strong>
+
+        </label>
+
+
+
+        <label class="option-item">
+
+          <input
+            type="checkbox"
+            class="option"
+            value="10000"
+            data-name="予約機能"
+          >
+
+          <span>
+            予約機能
+          </span>
+
+          <strong>
+            +10,000円
+          </strong>
+
+        </label>
+
+
+
+        <label class="option-item">
+
+          <input
+            type="checkbox"
+            class="option"
+            value="10000"
+            data-name="特殊機能"
+          >
+
+          <span>
+            特殊機能
+          </span>
+
+          <strong>
+            +10,000円〜
+          </strong>
+
+        </label>
+
+
+
+        <label class="option-item">
+
+          <input
+            type="checkbox"
+            class="option"
+            value="10000"
+            data-name="Webアプリ"
+          >
+
+          <span>
+            Webアプリ
+          </span>
+
+          <strong>
+            +10,000円〜
+          </strong>
+
+        </label>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         TOTAL
+    ========================== -->
+
+    <div class="estimate-total large-total">
 
 
       <div>
 
         <span>
-          お見積り日
+          総支払額
         </span>
 
-        <strong id="estimateDate">
-          —
+        <p>
+          選択内容をもとに計算
+        </p>
+
+      </div>
+
+
+      <strong id="estimateTotal">
+        0円
+      </strong>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         SELECTED PLAN
+    ========================== -->
+
+    <div class="selected-summary">
+
+      <h2>
+        お見積り内容
+      </h2>
+
+
+      <div class="summary-row">
+
+        <span>
+          プラン
+        </span>
+
+        <strong id="selectedPlan">
+          未選択
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row">
+
+        <span>
+          オプション
+        </span>
+
+        <strong id="selectedOptions">
+          なし
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row total-row">
+
+        <span>
+          総支払額
+        </span>
+
+        <strong id="summaryTotal">
+          0円
         </strong>
 
       </div>
@@ -138,313 +487,49 @@
 
 
     <!-- =========================
-         PRICE PLANS
+         PAYMENT
     ========================== -->
 
-    <div class="plan-list">
+    <div class="payment-box">
 
 
-      <!-- STARTER -->
-
-      <div class="plan-card">
-
-
-        <div class="plan-card-top">
-
-          <div>
-
-            <p class="plan-label">
-              STARTER
-            </p>
-
-            <h2>
-              シンプル
-              ホームページ
-            </h2>
-
-          </div>
-
-
-          <div class="plan-price">
-
-            <strong>
-              10,000
-            </strong>
-
-            <span>
-              円〜
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <p class="plan-description">
-
-          必要な情報を1ページにまとめた、
-          はじめてのホームページにおすすめのプラン。
-
-        </p>
-
-
-        <ul class="plan-features">
-
-          <li>
-            1ページ
-          </li>
-
-          <li>
-            スマートフォン対応
-          </li>
-
-          <li>
-            SNSリンク
-          </li>
-
-          <li>
-            Googleマップ
-          </li>
-
-          <li>
-            お問い合わせ導線
-          </li>
-
-          <li>
-            修正2回
-          </li>
-
-        </ul>
-
-
-        <div class="plan-basic-price">
-
-          基本料金
-
-          <strong>
-            10,000円〜
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- STANDARD -->
-
-      <div class="plan-card">
-
-
-        <div class="plan-card-top">
-
-          <div>
-
-            <p class="plan-label">
-              STANDARD
-            </p>
-
-            <h2>
-              しっかり伝わる
-              ホームページ
-            </h2>
-
-          </div>
-
-
-          <div class="plan-price">
-
-            <strong>
-              30,000
-            </strong>
-
-            <span>
-              円〜
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <p class="plan-description">
-
-          複数ページでお店やサービスを
-          しっかり紹介したい方向けのプラン。
-
-        </p>
-
-
-        <ul class="plan-features">
-
-          <li>
-            3〜5ページ
-          </li>
-
-          <li>
-            スマートフォン対応
-          </li>
-
-          <li>
-            SNS連携
-          </li>
-
-          <li>
-            お問い合わせフォーム
-          </li>
-
-          <li>
-            基本SEO設定
-          </li>
-
-          <li>
-            修正3回
-          </li>
-
-        </ul>
-
-
-        <div class="plan-basic-price">
-
-          基本料金
-
-          <strong>
-            30,000円〜
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- CUSTOM -->
-
-      <div class="plan-card featured-plan">
-
-
-        <div class="plan-card-top">
-
-          <div>
-
-            <p class="plan-label">
-              CUSTOM
-            </p>
-
-            <h2>
-              こだわり
-              ホームページ
-            </h2>
-
-          </div>
-
-
-          <div class="plan-price">
-
-            <strong>
-              50,000
-            </strong>
-
-            <span>
-              円〜
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <p class="plan-description">
-
-          オリジナルデザインや予約機能、
-          特殊な機能など、ご希望に合わせて制作します。
-
-        </p>
-
-
-        <ul class="plan-features">
-
-          <li>
-            オリジナルデザイン
-          </li>
-
-          <li>
-            予約機能
-          </li>
-
-          <li>
-            特殊機能
-          </li>
-
-          <li>
-            Webアプリ
-          </li>
-
-          <li>
-            その他ご相談
-          </li>
-
-        </ul>
-
-
-        <div class="plan-basic-price">
-
-          基本料金
-
-          <strong>
-            50,000円〜
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- =========================
-         ADDITIONAL COST
-    ========================== -->
-
-    <div class="estimate-notes">
+      <p class="payment-label">
+        PAYMENT
+      </p>
 
 
       <h2>
-        追加料金について
+        お支払いについて
       </h2>
 
 
       <p>
-        ・ページ追加
-      </p>
 
-      <p>
-        ・特殊なデザインやアニメーション
-      </p>
+        上記の総支払額をご確認のうえ、
+        PayPayなど、HOMICが指定する方法で
+        お支払いください。
 
-      <p>
-        ・予約システムなどの追加機能
-      </p>
-
-      <p>
-        ・Webアプリなどのシステム開発
-      </p>
-
-      <p>
-        ・サーバー・ドメインなどの費用
       </p>
 
 
-      <p>
-        ※上記などが必要となる場合は、
-        制作前に料金をご説明し、
-        お客様のご了承をいただいてから制作を開始します。
-      </p>
+      <div class="payment-warning">
+
+        <strong>
+          ご注意
+        </strong>
+
+        <p>
+
+          この画面はお見積り内容を確認するためのものです。
+
+          <br>
+
+          HOMIC側で実際のお支払いを確認するまで、
+          「支払い完了」とはなりません。
+
+        </p>
+
+      </div>
 
 
     </div>
@@ -452,18 +537,38 @@
 
 
     <!-- =========================
-         ESTIMATE TOTAL
+         SCREENSHOT
     ========================== -->
 
-    <div class="estimate-total">
+    <div class="screenshot-box">
 
-      <span>
-        基本料金
-      </span>
 
-      <strong id="estimateTotal">
-        —
-      </strong>
+      <div class="screenshot-icon">
+        ✓
+      </div>
+
+
+      <div>
+
+        <h2>
+          お支払い後はスクリーンショットを保存
+        </h2>
+
+
+        <p>
+
+          お支払い後、このお見積り画面を
+          スクリーンショットして保存してください。
+
+          <br>
+
+          HOMIC側で入金を確認する際に
+          照合させていただきます。
+
+        </p>
+
+      </div>
+
 
     </div>
 
@@ -485,8 +590,7 @@
 
         <label for="estimateAgree">
 
-          上記のお見積り内容を確認しました。
-          内容に同意します。
+          お見積り内容・総支払額を確認しました。
 
         </label>
 
@@ -500,7 +604,7 @@
         disabled
       >
 
-        見積内容に同意する
+        見積内容を確定する
 
         <span>
           →
@@ -511,7 +615,7 @@
 
       <p class="agreement-note">
 
-        同意後、契約番号と同意日時を記録します。
+        確定後、契約番号とお見積り内容を記録します。
 
       </p>
 
@@ -522,8 +626,9 @@
   </section>
 
 
+
   <!-- =========================
-       BACK
+       NOTE
   ========================== -->
 
   <div class="system-note">
@@ -533,8 +638,8 @@
     </span>
 
     <p>
-      内容についてご不明な点がございましたら、
-      HOMICまでお問い合わせください。
+      金額・内容についてご不明な点がございましたら、
+      お支払い前にHOMICまでお問い合わせください。
     </p>
 
   </div>
