@@ -5,364 +5,566 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /*
-   * -----------------------------------------------
-   * 契約番号
-   * -----------------------------------------------
-   */
+  const planInputs = document.querySelectorAll(
+    'input[name="plan"]'
+  );
 
-  function createContractNumber(prefix = "HOMIC") {
+  const optionInputs = document.querySelectorAll(
+    ".option"
+  );
 
-    const now = new Date();
+  const totalElement =
+    document.getElementById("estimateTotal");
 
-    const year = now.getFullYear();
+  const summaryTotalElement =
+    document.getElementById("summaryTotal");
 
-    const month = String(now.getMonth() + 1).padStart(2, "0");
+  const selectedPlanElement =
+    document.getElementById("selectedPlan");
 
-    const day = String(now.getDate()).padStart(2, "0");
+  const selectedOptionsElement =
+    document.getElementById("selectedOptions");
 
-    const random = Math.floor(1000 + Math.random() * 9000);
-
-    return `${prefix}-${year}${month}${day}-${random}`;
-
-  }
-
-
-  /*
-   * -----------------------------------------------
-   * 日付
-   * -----------------------------------------------
-   */
-
-  function getJapaneseDate() {
-
-    const now = new Date();
-
-    const year = now.getFullYear();
-
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-
-    const day = String(now.getDate()).padStart(2, "0");
-
-    return `${year}年${month}月${day}日`;
-
-  }
-
-
-  /*
-   * -----------------------------------------------
-   * 利用規約
-   * -----------------------------------------------
-   */
-
-  const termsCheck = document.getElementById("termsAgree");
-
-  const termsButton = document.getElementById("termsButton");
-
-
-  if (termsCheck && termsButton) {
-
-    termsCheck.addEventListener("change", () => {
-
-      termsButton.disabled = !termsCheck.checked;
-
-    });
-
-
-    termsButton.addEventListener("click", () => {
-
-      if (!termsCheck.checked) {
-        return;
-      }
-
-      localStorage.setItem(
-        "homic_terms_agreed",
-        "true"
-      );
-
-      localStorage.setItem(
-        "homic_terms_agreed_at",
-        new Date().toISOString()
-      );
-
-      alert(
-        "利用規約への同意を確認しました。"
-      );
-
-      window.location.href = "contract.html";
-
-    });
-
-  }
-
-
-  /*
-   * -----------------------------------------------
-   * 契約ページ
-   * -----------------------------------------------
-   */
-
-  const contractNumber =
-    document.getElementById("contractNumber");
-
-  const contractDate =
-    document.getElementById("contractDate");
-
-
-  if (contractNumber) {
-
-    let number =
-      localStorage.getItem(
-        "homic_contract_number"
-      );
-
-
-    if (!number) {
-
-      number =
-        createContractNumber();
-
-      localStorage.setItem(
-        "homic_contract_number",
-        number
-      );
-
-    }
-
-
-    contractNumber.textContent = number;
-
-  }
-
-
-  if (contractDate) {
-
-    contractDate.textContent =
-      getJapaneseDate();
-
-  }
-
-
-  const contractCheck =
-    document.getElementById("contractAgree");
-
-  const contractButton =
-    document.getElementById("contractButton");
-
-
-  if (contractCheck && contractButton) {
-
-    contractCheck.addEventListener("change", () => {
-
-      contractButton.disabled =
-        !contractCheck.checked;
-
-    });
-
-
-    contractButton.addEventListener("click", () => {
-
-      const name =
-        document.getElementById(
-          "customerName"
-        )?.value.trim();
-
-
-      const shop =
-        document.getElementById(
-          "shopName"
-        )?.value.trim();
-
-
-      const email =
-        document.getElementById(
-          "customerEmail"
-        )?.value.trim();
-
-
-      if (!name) {
-
-        alert(
-          "お名前を入力してください。"
-        );
-
-        return;
-
-      }
-
-
-      if (!shop) {
-
-        alert(
-          "店舗・会社名を入力してください。"
-        );
-
-        return;
-
-      }
-
-
-      if (!email) {
-
-        alert(
-          "メールアドレスを入力してください。"
-        );
-
-        return;
-
-      }
-
-
-      const agreement = {
-
-        contractNumber:
-          localStorage.getItem(
-            "homic_contract_number"
-          ),
-
-        name: name,
-
-        shop: shop,
-
-        email: email,
-
-        agreedAt:
-          new Date().toISOString(),
-
-        contractVersion:
-          "1.0"
-
-      };
-
-
-      localStorage.setItem(
-
-        "homic_contract_agreement",
-
-        JSON.stringify(agreement)
-
-      );
-
-
-      alert(
-        "契約内容への同意を確認しました。\n\n契約番号：" +
-        agreement.contractNumber
-      );
-
-
-      window.location.href =
-        "estimate.html";
-
-    });
-
-  }
-
-
-  /*
-   * -----------------------------------------------
-   * 見積ページ
-   * -----------------------------------------------
-   */
-
-  const estimateCheck =
-    document.getElementById(
-      "estimateAgree"
-    );
-
+  const agreementCheckbox =
+    document.getElementById("estimateAgree");
 
   const estimateButton =
-    document.getElementById(
-      "estimateButton"
-    );
+    document.getElementById("estimateButton");
+
+  const customerName =
+    document.getElementById("customerName");
+
+  const shopName =
+    document.getElementById("shopName");
+
+  const customerEmail =
+    document.getElementById("customerEmail");
 
 
-  if (estimateCheck && estimateButton) {
+  /* ==================================================
+     FORMAT PRICE
+  ================================================== */
 
-    const agreement =
-      localStorage.getItem(
-        "homic_contract_agreement"
+  function formatPrice(price) {
+
+    return new Intl.NumberFormat("ja-JP").format(price) + "円";
+
+  }
+
+
+  /* ==================================================
+     GET SELECTED PLAN
+  ================================================== */
+
+  function getSelectedPlan() {
+
+    const selected =
+      document.querySelector(
+        'input[name="plan"]:checked'
       );
 
+    if (!selected) {
 
-    /*
-     * 契約情報がない場合
-     */
+      return null;
 
-    if (!agreement) {
+    }
 
-      estimateButton.disabled = true;
+    return {
+
+      name:
+        selected.dataset.plan,
+
+      price:
+        Number(selected.value)
+
+    };
+
+  }
+
+
+  /* ==================================================
+     GET SELECTED OPTIONS
+  ================================================== */
+
+  function getSelectedOptions() {
+
+    const selectedOptions = [];
+
+    optionInputs.forEach(option => {
+
+      if (option.checked) {
+
+        selectedOptions.push({
+
+          name:
+            option.dataset.name,
+
+          price:
+            Number(option.value)
+
+        });
+
+      }
+
+    });
+
+    return selectedOptions;
+
+  }
+
+
+  /* ==================================================
+     CALCULATE TOTAL
+  ================================================== */
+
+  function calculateTotal() {
+
+    const plan =
+      getSelectedPlan();
+
+    const options =
+      getSelectedOptions();
+
+
+    let total = 0;
+
+
+    if (plan) {
+
+      total += plan.price;
 
     }
 
 
-    estimateCheck.addEventListener(
+    options.forEach(option => {
+
+      total += option.price;
+
+    });
+
+
+    return total;
+
+  }
+
+
+  /* ==================================================
+     UPDATE SCREEN
+  ================================================== */
+
+  function updateEstimate() {
+
+    const plan =
+      getSelectedPlan();
+
+    const options =
+      getSelectedOptions();
+
+    const total =
+      calculateTotal();
+
+
+    /* ---------- TOTAL ---------- */
+
+    if (total === 0) {
+
+      totalElement.textContent =
+        "0円";
+
+      summaryTotalElement.textContent =
+        "0円";
+
+    } else {
+
+      totalElement.textContent =
+        formatPrice(total);
+
+      summaryTotalElement.textContent =
+        formatPrice(total);
+
+    }
+
+
+    /* ---------- PLAN ---------- */
+
+    if (plan) {
+
+      selectedPlanElement.textContent =
+        `${plan.name} / ${formatPrice(plan.price)}`;
+
+    } else {
+
+      selectedPlanElement.textContent =
+        "未選択";
+
+    }
+
+
+    /* ---------- OPTIONS ---------- */
+
+    if (options.length === 0) {
+
+      selectedOptionsElement.textContent =
+        "なし";
+
+    } else {
+
+      selectedOptionsElement.innerHTML =
+        options
+          .map(option => {
+
+            return `
+              ${option.name}
+              (+${formatPrice(option.price)})
+            `;
+
+          })
+          .join("<br>");
+
+    }
+
+
+    /* ---------- BUTTON ---------- */
+
+    updateAgreementButton();
+
+  }
+
+
+  /* ==================================================
+     AGREEMENT BUTTON
+  ================================================== */
+
+  function updateAgreementButton() {
+
+    if (!estimateButton) {
+
+      return;
+
+    }
+
+
+    const plan =
+      getSelectedPlan();
+
+
+    const agreed =
+      agreementCheckbox &&
+      agreementCheckbox.checked;
+
+
+    const customer =
+      customerName &&
+      customerName.value.trim() !== "";
+
+
+    const email =
+      customerEmail &&
+      customerEmail.value.trim() !== "";
+
+
+    if (
+      plan &&
+      agreed &&
+      customer &&
+      email
+    ) {
+
+      estimateButton.disabled =
+        false;
+
+    } else {
+
+      estimateButton.disabled =
+        true;
+
+    }
+
+  }
+
+
+  /* ==================================================
+     PLAN EVENT
+  ================================================== */
+
+  planInputs.forEach(input => {
+
+    input.addEventListener(
       "change",
-      () => {
-
-        estimateButton.disabled =
-          !estimateCheck.checked ||
-          !agreement;
-
-      }
+      updateEstimate
     );
 
+  });
+
+
+  /* ==================================================
+     OPTION EVENT
+  ================================================== */
+
+  optionInputs.forEach(input => {
+
+    input.addEventListener(
+      "change",
+      updateEstimate
+    );
+
+  });
+
+
+  /* ==================================================
+     AGREEMENT EVENT
+  ================================================== */
+
+  if (agreementCheckbox) {
+
+    agreementCheckbox.addEventListener(
+      "change",
+      updateAgreementButton
+    );
+
+  }
+
+
+  /* ==================================================
+     CUSTOMER EVENT
+  ================================================== */
+
+  [
+    customerName,
+    shopName,
+    customerEmail
+
+  ].forEach(input => {
+
+    if (!input) {
+
+      return;
+
+    }
+
+
+    input.addEventListener(
+      "input",
+      updateAgreementButton
+    );
+
+  });
+
+
+  /* ==================================================
+     CONFIRM ESTIMATE
+  ================================================== */
+
+  if (estimateButton) {
 
     estimateButton.addEventListener(
       "click",
       () => {
 
-        if (
-          !estimateCheck.checked ||
-          !agreement
-        ) {
+        const plan =
+          getSelectedPlan();
+
+        const options =
+          getSelectedOptions();
+
+        const total =
+          calculateTotal();
+
+
+        if (!plan) {
+
+          alert(
+            "プランを選択してください。"
+          );
 
           return;
 
         }
 
 
-        const data =
-          JSON.parse(agreement);
+        if (
+          !customerName ||
+          customerName.value.trim() === ""
+        ) {
+
+          alert(
+            "お客様名を入力してください。"
+          );
+
+          return;
+
+        }
 
 
-        data.estimateAgreedAt =
-          new Date().toISOString();
+        if (
+          !customerEmail ||
+          customerEmail.value.trim() === ""
+        ) {
+
+          alert(
+            "メールアドレスを入力してください。"
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !agreementCheckbox ||
+          !agreementCheckbox.checked
+        ) {
+
+          alert(
+            "お見積り内容を確認して同意してください。"
+          );
+
+          return;
+
+        }
+
+
+        /* ==========================================
+           CONTRACT NUMBER
+        ========================================== */
+
+        const now =
+          new Date();
+
+        const year =
+          now.getFullYear();
+
+        const month =
+          String(
+            now.getMonth() + 1
+          ).padStart(2, "0");
+
+        const day =
+          String(
+            now.getDate()
+          ).padStart(2, "0");
+
+        const random =
+          Math.floor(
+            1000 +
+            Math.random() * 9000
+          );
+
+
+        const contractNumber =
+          `HOMIC-${year}${month}${day}-${random}`;
+
+
+        /* ==========================================
+           SAVE ESTIMATE
+        ========================================== */
+
+        const estimateData = {
+
+          contractNumber,
+
+          customerName:
+            customerName.value.trim(),
+
+          shopName:
+            shopName
+              ? shopName.value.trim()
+              : "",
+
+          email:
+            customerEmail.value.trim(),
+
+          plan: {
+
+            name:
+              plan.name,
+
+            price:
+              plan.price
+
+          },
+
+          options,
+
+          total,
+
+          confirmedAt:
+            now.toISOString()
+
+        };
 
 
         localStorage.setItem(
 
-          "homic_contract_agreement",
+          "homicEstimate",
 
-          JSON.stringify(data)
+          JSON.stringify(
+            estimateData
+          )
 
         );
 
+
+        /* ==========================================
+           SCREENSHOT / PAYMENT NOTICE
+        ========================================== */
 
         alert(
-          "見積内容への同意を確認しました。\n\n" +
-          "契約番号：" +
-          data.contractNumber
+
+          "お見積り内容を確定しました。\n\n" +
+
+          `契約番号：${contractNumber}\n` +
+
+          `総支払額：${formatPrice(total)}\n\n` +
+
+          "この画面をスクリーンショットして保存してください。\n\n" +
+
+          "その後、HOMIC指定の方法でお支払いください。\n\n" +
+
+          "HOMIC側で入金を確認後、確認メールをお送りします。"
+
         );
 
 
-        /*
-         * 現段階ではここで完了。
-         *
-         * 次の段階で
-         *
-         * Google Apps Script
-         *
-         * ↓
-         *
-         * Googleスプレッドシート
-         *
-         * へデータを送信する。
-         */
+        /* ==========================================
+           SHOW CONFIRMED STATE
+        ========================================== */
+
+        estimateButton.textContent =
+          "お見積り確定済み ✓";
+
+        estimateButton.disabled =
+          true;
+
+
+        agreementCheckbox.disabled =
+          true;
+
+
+        /* ==========================================
+           STORE CONFIRMATION STATE
+        ========================================== */
+
+        localStorage.setItem(
+
+          "homicEstimateConfirmed",
+
+          "true"
+
+        );
 
       }
+
     );
 
   }
+
+
+  /* ==================================================
+     INITIALIZE
+  ================================================== */
+
+  updateEstimate();
 
 
 });
