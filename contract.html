@@ -1,1 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>HOMIC｜制作契約</title>
+
+  <link rel="stylesheet" href="contract.css">
+</head>
+
+<body>
+
+<header class="contract-header">
+
+  <a href="index.html" class="contract-logo">
+    HOMIC<span>.</span>
+  </a>
+
+  <div class="document-label">
+    WEB PRODUCTION CONTRACT
+  </div>
+
+</header>
+
+
+<main class="document-page">
+
+  <div class="document-head">
+
+    <p>HOMIC WEB PRODUCTION</p>
+
+    <h1>Webサイト制作業務委託契約</h1>
+
+    <span>
+      契約書バージョン 1.0
+    </span>
+
+  </div>
+
+
+  <section class="document-card">
+
+    <div class="contract-info">
+
+      <div>
+        <span>契約番号</span>
+        <strong id="contractNumber">
+          HOMIC-000001
+        </strong>
+      </div>
+
+      <div>
+        <span>契約日</span>
+        <strong id="contractDate">
+          -
+        </strong>
+      </div>
+
+    </div>
+
+
+    <article>
+
+      <h2>発注者情報</h2>
+
+      <div class="input-grid">
+
+        <div class="input-group">
+
+          <label for="customerName">
+            お名前
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="山田 太郎"
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="shopName">
+            店舗・会社名
+          </label>
+
+          <input
+            type="text"
+            id="shopName"
+            placeholder="○○カフェ"
+          >
+
+        </div>
+
+
+        <div class="input-group full">
+
+          <label for="customerEmail">
+            メールアドレス
+          </label>
+
+          <input
+            type="email"
+            id="customerEmail"
+            placeholder="example@email.com"
+          >
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <h2>第1条　委託業務</h2>
+
+      <p>
+        発注者はHOMICに対し、
+        Webサイトの制作業務を委託し、
+        HOMICはこれを受託します。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第2条　制作内容</h2>
+
+      <div class="contract-detail">
+
+        <div>
+          <span>制作プラン</span>
+          <strong>［案件ごとに入力］</strong>
+        </div>
+
+        <div>
+          <span>ページ数</span>
+          <strong>［案件ごとに入力］</strong>
+        </div>
+
+        <div>
+          <span>修正回数</span>
+          <strong>［案件ごとに入力］</strong>
+        </div>
+
+        <div>
+          <span>納品予定</span>
+          <strong>［案件ごとに入力］</strong>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <h2>第3条　料金</h2>
+
+      <p>
+        制作料金は、別途提示する見積書に記載された金額とします。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第4条　追加作業</h2>
+
+      <p>
+        当初の合意内容を超えるページ追加、
+        機能追加、大幅な仕様変更等については、
+        発注者とHOMICで協議のうえ、
+        別途料金を定めるものとします。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第5条　確認・納品</h2>
+
+      <p>
+        HOMICは制作物を発注者へ確認していただいたうえで、
+        合意した方法により納品します。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第6条　権利</h2>
+
+      <p>
+        制作物に関する著作権その他の権利については、
+        個別の契約条件に従うものとします。
+      </p>
+
+      <p>
+        第三者が提供する素材や外部サービスの権利は、
+        それぞれの権利者に帰属します。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第7条　実績掲載</h2>
+
+      <p>
+        HOMICが制作実績としてWebサイトやSNS等に掲載する場合は、
+        個別に確認した条件に従うものとします。
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>第8条　協議</h2>
+
+      <p>
+        本契約に定めのない事項については、
+        双方が誠実に協議して解決するものとします。
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <section class="agreement-box">
+
+    <div class="agreement-check">
+
+      <input
+        type="checkbox"
+        id="contractAgree"
+      >
+
+      <label for="contractAgree">
+        契約内容を確認し、上記内容に同意します。
+      </label>
+
+    </div>
+
+
+    <button
+      class="agree-button"
+      id="contractButton"
+      disabled
+    >
+      この内容で契約に同意する
+      <span>→</span>
+    </button>
+
+
+    <p class="agreement-note">
+      ※同意する前に契約内容を必ずご確認ください。
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer class="contract-footer">
+  HOMIC. — AI × WEB PRODUCTION
+</footer>
+
+
+<script src="contract.js"></script>
+
+</body>
+</html>
