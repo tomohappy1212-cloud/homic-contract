@@ -2,196 +2,750 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta charset="UTF-8">
 
-  <title>HOMIC｜契約・お見積り</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-  <link
-    rel="stylesheet"
-    href="contract.css"
-  >
+<title>HOMIC｜ホームページ制作のお申し込み</title>
+
+<meta
+  name="description"
+  content="HOMICのホームページ制作お申し込みページ。見積もりから契約、支払いまでオンラインで確認できます。"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: #080808;
+
+  color: #fff;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+  padding: 26px 24px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+}
+
+
+.logo {
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 21px;
+
+  font-weight: 900;
+
+  letter-spacing: .18em;
+
+}
+
+
+.logo span {
+  color: #c9a45c;
+}
+
+
+.header-link {
+
+  color: #999;
+
+  font-size: 12px;
+
+  text-decoration: none;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    100px 24px
+    90px;
+
+}
+
+
+.hero-label {
+
+  margin: 0 0 22px;
+
+  color: #c9a45c;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .28em;
+
+}
+
+
+.hero h1 {
+
+  margin: 0;
+
+  max-width: 760px;
+
+  font-size:
+    clamp(42px, 8vw, 82px);
+
+  line-height: 1.08;
+
+  letter-spacing: -.04em;
+
+}
+
+
+.hero h1 span {
+
+  color: #c9a45c;
+
+}
+
+
+.hero-text {
+
+  margin-top: 30px;
+
+  color: #999;
+
+  font-size: 15px;
+
+  line-height: 2;
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+.start {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 0 24px 100px;
+
+}
+
+
+.start-title {
+
+  margin: 0;
+
+  color: #c9a45c;
+
+  font-size: 11px;
+
+  letter-spacing: .25em;
+
+}
+
+
+.start-heading {
+
+  margin: 12px 0 45px;
+
+  font-size: 32px;
+
+}
+
+
+/* =========================
+   STEPS
+========================= */
+
+.steps {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border-top: 1px solid #292929;
+
+  border-bottom: 1px solid #292929;
+
+}
+
+
+.step {
+
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 32px 28px;
+
+  border-right: 1px solid #292929;
+
+  text-decoration: none;
+
+  color: #fff;
+
+  transition:
+    background .25s,
+    transform .25s;
+
+}
+
+
+.step:last-child {
+  border-right: none;
+}
+
+
+.step:hover {
+
+  background: #151515;
+
+  transform: translateY(-4px);
+
+}
+
+
+.step-number {
+
+  color: #c9a45c;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+}
+
+
+.step h3 {
+
+  margin-top: 70px;
+
+  font-size: 22px;
+
+}
+
+
+.step p {
+
+  color: #888;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+}
+
+
+.step-arrow {
+
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  color: #c9a45c;
+
+  font-size: 20px;
+
+}
+
+
+/* =========================
+   IMPORTANT
+========================= */
+
+.notice {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    0 24px
+    100px;
+
+}
+
+
+.notice-inner {
+
+  padding: 30px;
+
+  border: 1px solid #292929;
+
+  background: #101010;
+
+}
+
+
+.notice-title {
+
+  margin: 0 0 12px;
+
+  color: #c9a45c;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+}
+
+
+.notice p {
+
+  margin: 0;
+
+  color: #888;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+  border-top: 1px solid #222;
+
+  padding: 35px 24px;
+
+}
+
+
+.footer-inner {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+.footer-logo {
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  letter-spacing: .15em;
+
+}
+
+
+.footer-copy {
+
+  color: #555;
+
+  font-size: 10px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+  .hero {
+
+    padding:
+      70px 20px
+      65px;
+
+  }
+
+
+  .start {
+
+    padding:
+      0 20px
+      70px;
+
+  }
+
+
+  .steps {
+
+    display: block;
+
+  }
+
+
+  .step {
+
+    min-height: auto;
+
+    padding: 25px 22px;
+
+    border-right: none;
+
+    border-bottom: 1px solid #292929;
+
+  }
+
+
+  .step:last-child {
+
+    border-bottom: none;
+
+  }
+
+
+  .step h3 {
+
+    margin-top: 28px;
+
+  }
+
+
+  .step-arrow {
+
+    bottom: 23px;
+
+  }
+
+
+  .notice {
+
+    padding:
+      0 20px
+      70px;
+
+  }
+
+
+  .notice-inner {
+
+    padding: 24px;
+
+  }
+
+
+  .footer-inner {
+
+    display: block;
+
+  }
+
+
+  .footer-copy {
+
+    margin-top: 10px;
+
+  }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<header class="contract-header">
 
-  <a href="index.html" class="contract-logo">
+<header class="header">
+
+  <a
+    href="index.html"
+    class="logo"
+  >
     HOMIC<span>.</span>
   </a>
 
-  <div class="document-label">
-    CONTRACT SYSTEM
-  </div>
+
+  <a
+    href="https://x.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="header-link"
+  >
+    CONTACT →
+  </a>
 
 </header>
 
 
-<main class="document-page">
+<main>
 
 
-  <div class="document-head">
+<!-- HERO -->
 
-    <p>HOMIC WEB PRODUCTION</p>
+<section class="hero">
 
-    <h1>
-      契約・お見積り
-    </h1>
+  <p class="hero-label">
+    HOMIC WEB PRODUCTION
+  </p>
 
-    <span>
-      HOMIC Web制作サービス
-    </span>
+
+  <h1>
+
+    あなたのWebサイトを、<br>
+
+    <span>ここから。</span>
+
+  </h1>
+
+
+  <p class="hero-text">
+
+    HOMICのホームページ制作は、<br>
+    見積もりから契約・支払いまで<br>
+    オンラインでスムーズに進められます。
+
+  </p>
+
+</section>
+
+
+<!-- START -->
+
+<section class="start">
+
+  <p class="start-title">
+    HOW TO START
+  </p>
+
+
+  <h2 class="start-heading">
+    お申し込みの流れ
+  </h2>
+
+
+  <div class="steps">
+
+
+    <!-- 01 -->
+
+    <a
+      href="estimate.html"
+      class="step"
+    >
+
+      <span class="step-number">
+        01 / ESTIMATE
+      </span>
+
+
+      <h3>
+        お見積もり
+      </h3>
+
+
+      <p>
+        制作プランとオプションを選択して、
+        お支払い総額をご確認ください。
+      </p>
+
+
+      <span class="step-arrow">
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 02 -->
+
+    <a
+      href="terms.html"
+      class="step"
+    >
+
+      <span class="step-number">
+        02 / TERMS
+      </span>
+
+
+      <h3>
+        利用規約
+      </h3>
+
+
+      <p>
+        制作サービスをご利用いただく前に、
+        利用規約をご確認ください。
+      </p>
+
+
+      <span class="step-arrow">
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 03 -->
+
+    <a
+      href="contract.html"
+      class="step"
+    >
+
+      <span class="step-number">
+        03 / CONTRACT
+      </span>
+
+
+      <h3>
+        契約確認
+      </h3>
+
+
+      <p>
+        お見積もり内容と契約内容を確認し、
+        同意していただきます。
+      </p>
+
+
+      <span class="step-arrow">
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 04 -->
+
+    <a
+      href="payment.html"
+      class="step"
+    >
+
+      <span class="step-number">
+        04 / PAYMENT
+      </span>
+
+
+      <h3>
+        お支払い
+      </h3>
+
+
+      <p>
+        表示された総額をお支払いください。
+        入金確認後、制作を開始します。
+      </p>
+
+
+      <span class="step-arrow">
+        →
+      </span>
+
+    </a>
+
 
   </div>
 
-
-  <section class="document-card">
-
-
-    <div class="notice">
-
-      HOMICのWeb制作サービスをご利用いただき
-      ありがとうございます。
-
-      <br>
-
-      以下から確認する書類を選択してください。
-
-    </div>
+</section>
 
 
-    <div class="menu-grid">
+<!-- NOTICE -->
 
+<section class="notice">
 
-      <a
-        href="terms.html"
-        class="menu-card"
-      >
+  <div class="notice-inner">
 
-        <div class="menu-number">
-          01
-        </div>
+    <p class="notice-title">
+      IMPORTANT
+    </p>
 
-        <div>
-
-          <p class="menu-label">
-            TERMS
-          </p>
-
-          <h2>
-            利用規約
-          </h2>
-
-          <span>
-            サービス利用に関する規約を確認
-          </span>
-
-        </div>
-
-        <strong>
-          →
-        </strong>
-
-      </a>
-
-
-
-      <a
-        href="contract.html"
-        class="menu-card"
-      >
-
-        <div class="menu-number">
-          02
-        </div>
-
-        <div>
-
-          <p class="menu-label">
-            CONTRACT
-          </p>
-
-          <h2>
-            制作契約書
-          </h2>
-
-          <span>
-            Webサイト制作の契約内容を確認
-          </span>
-
-        </div>
-
-        <strong>
-          →
-        </strong>
-
-      </a>
-
-
-
-      <a
-        href="estimate.html"
-        class="menu-card"
-      >
-
-        <div class="menu-number">
-          03
-        </div>
-
-        <div>
-
-          <p class="menu-label">
-            ESTIMATE
-          </p>
-
-          <h2>
-            お見積書
-          </h2>
-
-          <span>
-            制作料金・内容を確認
-          </span>
-
-        </div>
-
-        <strong>
-          →
-        </strong>
-
-      </a>
-
-
-    </div>
-
-
-  </section>
-
-
-  <div class="system-note">
-
-    <span>
-      HOMIC CONTRACT SYSTEM
-    </span>
 
     <p>
-      ご不明な点がある場合は、
-      HOMICまでお問い合わせください。
+      お見積もりを確定すると、
+      選択した制作内容・料金が保存されます。
+      その後、契約内容をご確認いただき、
+      お支払いへ進みます。
     </p>
 
   </div>
+
+</section>
 
 
 </main>
 
 
-<footer class="contract-footer">
+<footer class="footer">
 
-  HOMIC. — AI × WEB PRODUCTION
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      HOMIC.
+    </div>
+
+
+    <div class="footer-copy">
+      © 2026 HOMIC WEB PRODUCTION
+    </div>
+
+  </div>
 
 </footer>
 
