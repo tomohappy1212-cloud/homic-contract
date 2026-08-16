@@ -3,431 +3,448 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<title>HOMIC｜お見積もり</title>
 
-  <title>HOMIC｜お見積り</title>
-
-  <link
-    rel="stylesheet"
-    href="contract.css"
-  >
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
+<header class="header">
 
-<main class="contract-page">
+<a href="index.html" class="logo">
+HOMIC<span>.</span>
+</a>
 
+<div class="header-sub">
+ESTIMATE
+</div>
 
-  <section class="contract-card">
+</header>
 
 
-    <!-- HEADER -->
+<main class="form-page">
 
-    <div class="contract-header">
+<div class="form-container">
 
-      <p class="contract-label">
-        HOMIC WEB PRODUCTION
-      </p>
 
-      <h1>
-        お見積り
-      </h1>
+<div class="page-heading">
 
-      <p>
-        必要事項を入力して、制作内容と料金をご確認ください。
-      </p>
+<div class="section-label">
+STEP 01 / ESTIMATE
+</div>
 
-    </div>
+<h1>お見積もり</h1>
 
+<p>
+制作内容を選択すると、
+総支払額が自動で計算されます。
+</p>
 
-    <!-- CUSTOMER -->
+</div>
 
-    <div class="form-section">
 
-      <div class="form-group">
+<section class="form-card">
 
-        <label for="customerName">
-          お客様名
-        </label>
+<h2>お客様情報</h2>
 
-        <input
-          type="text"
-          id="customerName"
-          placeholder="例：山田 太郎"
-          autocomplete="name"
-        >
+<label>
+お名前
 
-      </div>
+<input
+type="text"
+id="customerName"
+placeholder="山田 太郎"
+>
+</label>
 
 
-      <div class="form-group">
+<label>
+メールアドレス
 
-        <label for="shopName">
-          店舗・会社名
-        </label>
+<input
+type="email"
+id="customerEmail"
+placeholder="example@email.com"
+>
+</label>
 
-        <input
-          type="text"
-          id="shopName"
-          placeholder="例：○○美容室"
-        >
 
-      </div>
+<label>
+店舗・会社名
 
+<input
+type="text"
+id="shopName"
+placeholder="〇〇美容室"
+>
+</label>
 
-      <div class="form-group">
+</section>
 
-        <label for="customerEmail">
-          メールアドレス
-        </label>
 
-        <input
-          type="email"
-          id="customerEmail"
-          placeholder="example@email.com"
-          autocomplete="email"
-        >
+<section class="form-card">
 
-      </div>
+<h2>制作プラン</h2>
 
-    </div>
 
+<label class="select-card">
 
-    <!-- PLAN -->
+<input
+type="radio"
+name="plan"
+value="10000"
+data-name="STARTER"
+checked
+>
 
-    <div class="form-section">
+<div>
 
-      <h2>
-        プランを選択
-      </h2>
+<strong>STARTER</strong>
 
+<span>
+1ページのシンプルなホームページ
+</span>
 
-      <div class="plan-list">
+</div>
 
+<b>10,000円</b>
 
-        <label class="plan-option">
+</label>
 
-          <input
-            type="radio"
-            name="plan"
-            value="10000"
-            data-plan="STARTER"
-          >
 
-          <span>
+<label class="select-card">
 
-            <strong>
-              STARTER
-            </strong>
+<input
+type="radio"
+name="plan"
+value="30000"
+data-name="STANDARD"
+>
 
-            <br>
+<div>
 
-            シンプルホームページ
+<strong>STANDARD</strong>
 
-            <br>
+<span>
+3〜5ページのホームページ
+</span>
 
-            <b>
-              10,000円〜
-            </b>
+</div>
 
-          </span>
+<b>30,000円</b>
 
-        </label>
+</label>
 
 
-        <label class="plan-option">
+<label class="select-card">
 
-          <input
-            type="radio"
-            name="plan"
-            value="30000"
-            data-plan="STANDARD"
-          >
+<input
+type="radio"
+name="plan"
+value="50000"
+data-name="CUSTOM"
+>
 
-          <span>
+<div>
 
-            <strong>
-              STANDARD
-            </strong>
+<strong>CUSTOM</strong>
 
-            <br>
+<span>
+こだわりのオリジナル制作
+</span>
 
-            しっかり伝わるホームページ
+</div>
 
-            <br>
+<b>50,000円</b>
 
-            <b>
-              30,000円〜
-            </b>
+</label>
 
-          </span>
+</section>
 
-        </label>
 
+<section class="form-card">
 
-        <label class="plan-option">
+<h2>追加オプション</h2>
 
-          <input
-            type="radio"
-            name="plan"
-            value="50000"
-            data-plan="CUSTOM"
-          >
 
-          <span>
+<label class="check-card">
 
-            <strong>
-              CUSTOM
-            </strong>
+<input
+type="checkbox"
+value="5000"
+data-name="ページ追加"
+>
 
-            <br>
+<span>ページ追加</span>
 
-            こだわりホームページ
+<b>+5,000円</b>
 
-            <br>
+</label>
 
-            <b>
-              50,000円〜
-            </b>
 
-          </span>
+<label class="check-card">
 
-        </label>
+<input
+type="checkbox"
+value="5000"
+data-name="予約・問い合わせ機能"
+>
 
+<span>予約・問い合わせ機能</span>
 
-      </div>
+<b>+5,000円</b>
 
-    </div>
+</label>
 
 
-    <!-- OPTIONS -->
+<label class="check-card">
 
-    <div class="form-section">
+<input
+type="checkbox"
+value="5000"
+data-name="基本SEO設定"
+>
 
-      <h2>
-        オプション
-      </h2>
+<span>基本SEO設定</span>
 
+<b>+5,000円</b>
 
-      <label class="option-row">
+</label>
 
-        <input
-          type="checkbox"
-          class="option"
-          value="5000"
-          data-name="追加ページ"
-        >
 
-        <span>
-          追加ページ
-        </span>
+<label class="check-card">
 
-        <strong>
-          +5,000円
-        </strong>
+<input
+type="checkbox"
+value="10000"
+data-name="特殊機能"
+>
 
-      </label>
+<span>特殊機能</span>
 
+<b>+10,000円</b>
 
-      <label class="option-row">
+</label>
 
-        <input
-          type="checkbox"
-          class="option"
-          value="10000"
-          data-name="予約機能"
-        >
+</section>
 
-        <span>
-          予約機能
-        </span>
 
-        <strong>
-          +10,000円
-        </strong>
+<section class="total-card">
 
-      </label>
+<p>TOTAL</p>
 
+<strong id="total">
+10,000円
+</strong>
 
-      <label class="option-row">
+<span>
+今回のお見積もり総額
+</span>
 
-        <input
-          type="checkbox"
-          class="option"
-          value="10000"
-          data-name="お問い合わせフォーム"
-        >
+</section>
 
-        <span>
-          お問い合わせフォーム
-        </span>
 
-        <strong>
-          +10,000円
-        </strong>
+<button
+type="button"
+id="createEstimate"
+class="main-button"
+>
+この内容で見積もりを作成 →
+</button>
 
-      </label>
 
-
-      <label class="option-row">
-
-        <input
-          type="checkbox"
-          class="option"
-          value="5000"
-          data-name="SNS連携"
-        >
-
-        <span>
-          SNS連携
-        </span>
-
-        <strong>
-          +5,000円
-        </strong>
-
-      </label>
-
-
-      <label class="option-row">
-
-        <input
-          type="checkbox"
-          class="option"
-          value="10000"
-          data-name="基本SEO設定"
-        >
-
-        <span>
-          基本SEO設定
-        </span>
-
-        <strong>
-          +10,000円
-        </strong>
-
-      </label>
-
-
-    </div>
-
-
-    <!-- SUMMARY -->
-
-    <div class="price-summary">
-
-      <p class="price-summary-label">
-        TOTAL
-      </p>
-
-      <p
-        id="estimateTotal"
-        class="price-summary-total"
-      >
-        0円
-      </p>
-
-    </div>
-
-
-    <!-- DETAIL -->
-
-    <div class="form-section">
-
-      <h2>
-        お見積り内容
-      </h2>
-
-
-      <p>
-        プラン：
-        <strong id="selectedPlan">
-          未選択
-        </strong>
-      </p>
-
-
-      <p>
-        オプション：
-      </p>
-
-      <div id="selectedOptions">
-        なし
-      </div>
-
-
-      <hr>
-
-
-      <p>
-        総支払額：
-      </p>
-
-      <strong
-        id="summaryTotal"
-        style="font-size: 28px;"
-      >
-        0円
-      </strong>
-
-
-    </div>
-
-
-    <!-- AGREEMENT -->
-
-    <div class="agreement-area">
-
-      <label class="agreement-check">
-
-        <input
-          type="checkbox"
-          id="estimateAgree"
-        >
-
-        <span>
-          お見積り内容・総支払額を確認しました。
-        </span>
-
-      </label>
-
-
-      <button
-        type="button"
-        id="estimateButton"
-        class="contract-button"
-        disabled
-      >
-        見積を確定して契約へ →
-      </button>
-
-    </div>
-
-
-    <p class="contract-note">
-
-      ※確定後、契約内容の確認ページへ進みます。
-
-    </p>
-
-
-  </section>
-
+</div>
 
 </main>
 
 
-<script src="contract.js"></script>
+<script>
 
+const STORAGE_KEY = "homicEstimate";
+
+
+function calculateTotal(){
+
+let price = 0;
+
+const plan =
+document.querySelector(
+'input[name="plan"]:checked'
+);
+
+if(plan){
+price += Number(plan.value);
+}
+
+document
+.querySelectorAll(
+'.check-card input:checked'
+)
+.forEach(item => {
+
+price += Number(item.value);
+
+});
+
+return price;
+
+}
+
+
+function displayTotal(){
+
+const total =
+calculateTotal();
+
+document.getElementById(
+"total"
+).textContent =
+new Intl.NumberFormat(
+"ja-JP"
+).format(total) + "円";
+
+}
+
+
+document
+.querySelectorAll(
+'input[name="plan"], .check-card input'
+)
+.forEach(input => {
+
+input.addEventListener(
+"change",
+displayTotal
+);
+
+});
+
+
+displayTotal();
+
+
+document
+.getElementById("createEstimate")
+.addEventListener(
+"click",
+function(){
+
+const name =
+document
+.getElementById("customerName")
+.value.trim();
+
+const email =
+document
+.getElementById("customerEmail")
+.value.trim();
+
+const shop =
+document
+.getElementById("shopName")
+.value.trim();
+
+
+if(!name){
+
+alert("お名前を入力してください。");
+
+return;
+
+}
+
+
+if(!email){
+
+alert("メールアドレスを入力してください。");
+
+return;
+
+}
+
+
+const plan =
+document.querySelector(
+'input[name="plan"]:checked'
+);
+
+
+const options = [];
+
+document
+.querySelectorAll(
+'.check-card input:checked'
+)
+.forEach(item => {
+
+options.push({
+name: item.dataset.name,
+price: Number(item.value)
+});
+
+});
+
+
+const total =
+calculateTotal();
+
+
+const contractNumber =
+"HOMIC-" +
+Date.now()
+.toString()
+.slice(-8);
+
+
+const data = {
+
+contractNumber,
+
+customerName: name,
+
+customerEmail: email,
+
+shopName: shop,
+
+plan: plan.dataset.name,
+
+basePrice: Number(plan.value),
+
+options,
+
+total,
+
+createdAt:
+new Date().toISOString(),
+
+termsAccepted: false,
+
+contractAccepted: false,
+
+paymentSubmitted: false,
+
+paymentConfirmed: false
+
+};
+
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
+
+
+window.location.href =
+"terms.html";
+
+});
+
+</script>
 
 </body>
-
 </html>
