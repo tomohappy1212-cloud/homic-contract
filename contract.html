@@ -3,566 +3,346 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<title>HOMIC｜契約確認</title>
 
-  <title>HOMIC｜契約確認</title>
-
-  <link
-    rel="stylesheet"
-    href="contract.css"
-  >
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
+<header class="header">
 
-<main class="contract-page">
+<a href="index.html" class="logo">
+HOMIC<span>.</span>
+</a>
 
+<div class="header-sub">
+CONTRACT
+</div>
 
-  <section class="contract-card">
+</header>
 
 
-    <!-- HEADER -->
+<main class="form-page">
 
-    <div class="contract-header">
+<div class="form-container">
 
-      <p class="contract-label">
-        HOMIC WEB PRODUCTION
-      </p>
 
-      <h1>
-        契約内容の確認
-      </h1>
+<div class="page-heading">
 
-      <p>
-        以下の内容をご確認のうえ、契約への同意を行ってください。
-      </p>
+<div class="section-label">
+STEP 03 / CONTRACT
+</div>
 
-    </div>
+<h1>契約内容の確認</h1>
 
+<p>
+以下の内容をご確認ください。
+</p>
 
-    <!-- CONTRACT INFO -->
+</div>
 
-    <div class="form-section">
 
-      <h2>
-        契約情報
-      </h2>
+<section class="summary-card">
 
+<div class="summary-row">
 
-      <div class="contract-info">
+<span>契約番号</span>
 
-        <p>
-          契約番号
-          <strong id="contractNumber">
-            読み込み中…
-          </strong>
-        </p>
+<strong id="contractNumber">
+—
+</strong>
 
+</div>
 
-        <p>
-          お客様名
-          <strong id="customerNameDisplay">
-            読み込み中…
-          </strong>
-        </p>
 
+<div class="summary-row">
 
-        <p>
-          店舗・会社名
-          <strong id="shopNameDisplay">
-            読み込み中…
-          </strong>
-        </p>
+<span>お客様</span>
 
+<strong id="customerName">
+—
+</strong>
 
-        <p>
-          メールアドレス
-          <strong id="emailDisplay">
-            読み込み中…
-          </strong>
-        </p>
+</div>
 
 
-        <p>
-          契約日
-          <strong id="contractDate">
-            契約同意時に確定
-          </strong>
-        </p>
+<div class="summary-row">
 
-      </div>
+<span>店舗・会社</span>
 
-    </div>
+<strong id="shopName">
+—
+</strong>
 
+</div>
 
-    <!-- PLAN -->
 
-    <div class="form-section">
+<div class="summary-row">
 
-      <h2>
-        制作内容
-      </h2>
+<span>メール</span>
 
+<strong id="customerEmail">
+—
+</strong>
 
-      <p>
-        選択プラン
-      </p>
+</div>
 
-      <strong
-        id="planDisplay"
-        style="font-size: 20px;"
-      >
-        読み込み中…
-      </strong>
 
+<div class="summary-row">
 
-      <p style="margin-top: 25px;">
-        オプション
-      </p>
+<span>プラン</span>
 
-      <div id="optionsDisplay">
-        読み込み中…
-      </div>
+<strong id="plan">
+—
+</strong>
 
-    </div>
+</div>
 
 
-    <!-- TOTAL -->
+<div class="summary-row">
 
-    <div class="price-summary">
+<span>基本料金</span>
 
-      <p class="price-summary-label">
-        TOTAL
-      </p>
+<strong id="basePrice">
+—
+</strong>
 
-      <p
-        id="totalDisplay"
-        class="price-summary-total"
-      >
-        読み込み中…
-      </p>
+</div>
 
-    </div>
 
+<div class="summary-row">
 
-    <!-- CONTRACT TERMS -->
+<span>オプション</span>
 
-    <div class="terms-box">
+<strong id="options">
+なし
+</strong>
 
-      <h2>
-        契約について
-      </h2>
+</div>
 
-      <p>
-        本ページに表示された内容をもとに、
-        HOMICとお客様とのホームページ制作契約を行います。
-      </p>
 
+<div class="summary-total">
 
-      <h2>
-        制作内容
-      </h2>
+<span>総支払額</span>
 
-      <p>
-        制作内容は、表示されているプランおよび
-        オプションを基本とします。
-        大幅な仕様変更や追加作業については、
-        別途料金が発生する場合があります。
-      </p>
+<strong id="total">
+—
+</strong>
 
+</div>
 
-      <h2>
-        支払い
-      </h2>
+</section>
 
-      <p>
-        表示された総支払額を、
-        HOMICが指定する方法によりお支払いください。
-      </p>
 
+<div class="contract-date">
 
-      <h2>
-        契約成立
-      </h2>
+契約日：
 
-      <p>
-        お客様が本ページの内容を確認し、
-        「契約に同意する」ボタンを押した時点で、
-        契約内容への同意記録が保存されます。
-      </p>
+<strong id="contractDate">
+—
+</strong>
 
-    </div>
+</div>
 
 
-    <!-- AGREEMENT -->
+<label class="agreement">
 
-    <div class="agreement-area">
+<input
+type="checkbox"
+id="contractCheck"
+>
 
+<span>
+上記の契約内容を確認し、
+契約内容に同意します。
+</span>
 
-      <label class="agreement-check">
+</label>
 
-        <input
-          type="checkbox"
-          id="contractAgree"
-        >
 
-        <span>
-          上記の契約内容を確認し、契約に同意します。
-        </span>
+<button
+id="contractButton"
+class="main-button"
+disabled
+>
+契約を確定する →
+</button>
 
-      </label>
 
-
-      <button
-        type="button"
-        id="contractButton"
-        class="contract-button"
-        disabled
-      >
-        契約に同意して支払いへ →
-      </button>
-
-
-    </div>
-
-
-    <p class="contract-note">
-
-      ※契約に同意すると、契約日時が自動的に記録されます。
-
-    </p>
-
-
-  </section>
-
+</div>
 
 </main>
 
 
 <script>
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+const STORAGE_KEY =
+"homicEstimate";
 
 
-    /* ==========================================
-       LOAD ESTIMATE
-    ========================================== */
+const data =
+JSON.parse(
+localStorage.getItem(STORAGE_KEY) || "null"
+);
 
-    const saved =
-      localStorage.getItem(
-        "homicEstimate"
-      );
 
+if(!data){
 
-    if (!saved) {
+alert(
+"先にお見積もりを作成してください。"
+);
 
-      alert(
-        "見積情報が見つかりません。見積ページからやり直してください。"
-      );
+window.location.href =
+"estimate.html";
 
-      window.location.href =
-        "estimate.html";
+}
 
-      return;
 
-    }
+if(!data.termsAccepted){
 
+alert(
+"先に利用規約への同意が必要です。"
+);
 
-    const data =
-      JSON.parse(saved);
+window.location.href =
+"terms.html";
 
+}
 
-    /* ==========================================
-       ELEMENTS
-    ========================================== */
 
-    const contractNumber =
-      document.getElementById(
-        "contractNumber"
-      );
+function money(value){
 
-    const customerName =
-      document.getElementById(
-        "customerNameDisplay"
-      );
+return new Intl.NumberFormat(
+"ja-JP"
+).format(value) + "円";
 
-    const shopName =
-      document.getElementById(
-        "shopNameDisplay"
-      );
+}
 
-    const email =
-      document.getElementById(
-        "emailDisplay"
-      );
 
-    const plan =
-      document.getElementById(
-        "planDisplay"
-      );
+document.getElementById(
+"contractNumber"
+).textContent =
+data.contractNumber;
 
-    const options =
-      document.getElementById(
-        "optionsDisplay"
-      );
 
-    const total =
-      document.getElementById(
-        "totalDisplay"
-      );
+document.getElementById(
+"customerName"
+).textContent =
+data.customerName;
 
-    const date =
-      document.getElementById(
-        "contractDate"
-      );
 
-    const checkbox =
-      document.getElementById(
-        "contractAgree"
-      );
+document.getElementById(
+"shopName"
+).textContent =
+data.shopName || "—";
 
-    const button =
-      document.getElementById(
-        "contractButton"
-      );
 
+document.getElementById(
+"customerEmail"
+).textContent =
+data.customerEmail;
 
-    /* ==========================================
-       DISPLAY
-    ========================================== */
 
-    contractNumber.textContent =
-      data.contractNumber || "—";
+document.getElementById(
+"plan"
+).textContent =
+data.plan;
 
 
-    customerName.textContent =
-      data.customerName || "—";
+document.getElementById(
+"basePrice"
+).textContent =
+money(data.basePrice);
 
 
-    shopName.textContent =
-      data.shopName || "未入力";
+document.getElementById(
+"options"
+).textContent =
 
+data.options.length
+? data.options
+.map(item => item.name)
+.join("・")
+: "なし";
 
-    email.textContent =
-      data.email || "—";
 
+document.getElementById(
+"total"
+).textContent =
+money(data.total);
 
-    plan.textContent =
 
-      data.plan
+const today =
+new Date();
 
-        ? `${data.plan.name} / ${formatPrice(data.plan.price)}`
 
-        : "—";
+document.getElementById(
+"contractDate"
+).textContent =
 
+today.getFullYear() +
+"年" +
 
-    if (
-      data.options &&
-      data.options.length > 0
-    ) {
+(today.getMonth() + 1) +
+"月" +
 
-      options.innerHTML =
-        data.options
-          .map(
-            option =>
-              `${option.name}　
-              +${formatPrice(option.price)}`
-          )
-          .join("<br>");
+today.getDate() +
+"日";
 
-    } else {
 
-      options.textContent =
-        "なし";
+const check =
+document.getElementById(
+"contractCheck"
+);
 
-    }
 
+const button =
+document.getElementById(
+"contractButton"
+);
 
-    total.textContent =
-      formatPrice(
-        Number(data.total || 0)
-      );
 
+check.addEventListener(
+"change",
+function(){
 
-    /* ==========================================
-       AGREEMENT BUTTON
-    ========================================== */
+button.disabled =
+!this.checked;
 
-    checkbox.addEventListener(
-      "change",
-      () => {
+});
 
-        button.disabled =
-          !checkbox.checked;
 
-      }
-    );
+button.addEventListener(
+"click",
+function(){
 
+data.contractAccepted =
+true;
 
-    /* ==========================================
-       CONTRACT
-    ========================================== */
+data.contractAcceptedAt =
+new Date().toISOString();
 
-    button.addEventListener(
-      "click",
-      () => {
+data.contractDate =
+today.toISOString();
 
 
-        if (!checkbox.checked) {
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
 
-          return;
 
-        }
+window.location.href =
+"payment.html";
 
-
-        const now =
-          new Date();
-
-
-        const contractDate =
-          now.toISOString();
-
-
-        /* --------------------------------------
-           SAVE CONTRACT
-        -------------------------------------- */
-
-        data.contractDate =
-          contractDate;
-
-
-        data.contractStatus =
-          "契約同意済み";
-
-
-        data.contractAgreed =
-          true;
-
-
-        localStorage.setItem(
-
-          "homicEstimate",
-
-          JSON.stringify(
-            data
-          )
-
-        );
-
-
-        localStorage.setItem(
-
-          "homicContractAgreed",
-
-          "true"
-
-        );
-
-
-        localStorage.setItem(
-
-          "homicContractAgreedAt",
-
-          contractDate
-
-        );
-
-
-        /* --------------------------------------
-           DISPLAY DATE
-        -------------------------------------- */
-
-        date.textContent =
-          formatDate(
-            contractDate
-          );
-
-
-        /* --------------------------------------
-           NEXT
-        -------------------------------------- */
-
-        window.location.href =
-          "payment.html";
-
-
-      }
-
-    );
-
-
-  }
-
-
-  /* ==========================================
-     PRICE
-  ========================================== */
-
-  function formatPrice(price) {
-
-    return new Intl.NumberFormat(
-      "ja-JP"
-    ).format(price) + "円";
-
-  }
-
-
-  /* ==========================================
-     DATE
-  ========================================== */
-
-  function formatDate(dateString) {
-
-    const date =
-      new Date(
-        dateString
-      );
-
-
-    return (
-
-      date.getFullYear() +
-      "年" +
-
-      String(
-        date.getMonth() + 1
-      ).padStart(2, "0") +
-
-      "月" +
-
-      String(
-        date.getDate()
-      ).padStart(2, "0") +
-
-      "日 " +
-
-      String(
-        date.getHours()
-      ).padStart(2, "0") +
-
-      ":" +
-
-      String(
-        date.getMinutes()
-      ).padStart(2, "0")
-
-    );
-
-  }
+});
 
 </script>
 
-
 </body>
-
 </html>
