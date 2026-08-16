@@ -1,0 +1,1229 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #080808;
+  color: #ffffff;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* HEADER */
+
+.header {
+
+  height: 80px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  border-bottom: 1px solid #252525;
+
+}
+
+
+.logo {
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 21px;
+
+  font-weight: 900;
+
+  letter-spacing: .18em;
+
+}
+
+
+.logo span {
+  color: #c9a45c;
+}
+
+
+.header-sub {
+
+  color: #777;
+
+  font-size: 10px;
+
+  letter-spacing: .2em;
+
+}
+
+
+/* HERO */
+
+.hero {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    130px 6%
+    150px;
+
+}
+
+
+.hero-label,
+.section-label {
+
+  color: #c9a45c;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .25em;
+
+}
+
+
+.hero h1 {
+
+  margin: 25px 0 0;
+
+  font-size:
+    clamp(42px, 8vw, 82px);
+
+  line-height: 1.08;
+
+  letter-spacing: -.045em;
+
+}
+
+
+.hero h1 span {
+  color: #c9a45c;
+}
+
+
+.hero p {
+
+  margin: 30px 0;
+
+  color: #999;
+
+  font-size: 15px;
+
+  line-height: 2;
+
+}
+
+
+.hero-button,
+.main-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  min-height: 58px;
+
+  padding: 0 30px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #c9a45c;
+
+  color: #080808;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+
+.hero-button:hover,
+.main-button:hover:not(:disabled) {
+
+  transform: translateY(-2px);
+
+  filter: brightness(1.1);
+
+}
+
+
+.main-button {
+
+  width: 100%;
+
+  margin-top: 25px;
+
+}
+
+
+.main-button:disabled {
+
+  opacity: .3;
+
+  cursor: not-allowed;
+
+}
+
+
+/* FLOW */
+
+.flow-section {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    0 6%
+    120px;
+
+}
+
+
+.flow-section h2 {
+
+  margin: 15px 0 40px;
+
+  font-size: 36px;
+
+}
+
+
+.flow-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border-top: 1px solid #292929;
+
+  border-left: 1px solid #292929;
+
+}
+
+
+.flow-card {
+
+  position: relative;
+
+  min-height: 300px;
+
+  padding: 30px;
+
+  border-right: 1px solid #292929;
+
+  border-bottom: 1px solid #292929;
+
+  text-decoration: none;
+
+  transition: .2s;
+
+}
+
+
+.flow-card:hover {
+
+  background: #151515;
+
+}
+
+
+.flow-card small {
+
+  color: #c9a45c;
+
+  letter-spacing: .15em;
+
+}
+
+
+.flow-card h3 {
+
+  margin-top: 70px;
+
+  font-size: 21px;
+
+}
+
+
+.flow-card p {
+
+  color: #888;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+}
+
+
+.flow-card strong {
+
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 22px;
+
+  color: #c9a45c;
+
+}
+
+
+/* MESSAGE */
+
+.message-section {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    0 6%
+    140px;
+
+}
+
+
+.message-section h2 {
+
+  margin: 20px 0;
+
+  font-size:
+    clamp(35px, 6vw, 60px);
+
+  line-height: 1.15;
+
+}
+
+
+.message-section p {
+
+  max-width: 600px;
+
+  color: #888;
+
+  line-height: 2;
+
+}
+
+
+/* FORM */
+
+.form-page {
+
+  min-height: calc(100vh - 80px);
+
+  padding: 70px 20px;
+
+}
+
+
+.form-container {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: auto;
+
+}
+
+
+.page-heading {
+
+  margin-bottom: 40px;
+
+}
+
+
+.page-heading h1 {
+
+  margin: 15px 0;
+
+  font-size: 42px;
+
+}
+
+
+.page-heading p {
+
+  color: #888;
+
+  line-height: 1.8;
+
+}
+
+
+.form-card,
+.document-card,
+.summary-card,
+.payment-card {
+
+  margin-bottom: 18px;
+
+  padding: 28px;
+
+  border: 1px solid #292929;
+
+  background: #101010;
+
+}
+
+
+.form-card h2,
+.payment-card h2 {
+
+  margin: 0 0 25px;
+
+  font-size: 18px;
+
+}
+
+
+label {
+
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #aaa;
+
+  font-size: 13px;
+
+}
+
+
+input[type="text"],
+input[type="email"] {
+
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 8px;
+
+  padding: 0 15px;
+
+  border: 1px solid #333;
+
+  border-radius: 5px;
+
+  background: #080808;
+
+  color: #fff;
+
+  outline: none;
+
+}
+
+
+input:focus {
+
+  border-color: #c9a45c;
+
+}
+
+
+/* PLAN */
+
+.select-card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  border: 1px solid #292929;
+
+  cursor: pointer;
+
+}
+
+
+.select-card input {
+
+  accent-color: #c9a45c;
+
+}
+
+
+.select-card div {
+
+  flex: 1;
+
+}
+
+
+.select-card strong {
+
+  display: block;
+
+  color: #fff;
+
+}
+
+
+.select-card span {
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #777;
+
+  font-size: 12px;
+
+}
+
+
+.select-card b {
+
+  color: #c9a45c;
+
+  white-space: nowrap;
+
+}
+
+
+/* OPTION */
+
+.check-card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px;
+
+  border-bottom: 1px solid #252525;
+
+}
+
+
+.check-card input {
+
+  accent-color: #c9a45c;
+
+}
+
+
+.check-card span {
+
+  flex: 1;
+
+}
+
+
+.check-card b {
+
+  color: #c9a45c;
+
+}
+
+
+/* TOTAL */
+
+.total-card,
+.payment-total {
+
+  margin: 20px 0;
+
+  padding: 35px;
+
+  border: 1px solid #c9a45c;
+
+  background: #12100c;
+
+  text-align: center;
+
+}
+
+
+.total-card p,
+.payment-total span {
+
+  margin: 0;
+
+  color: #999;
+
+  font-size: 10px;
+
+  letter-spacing: .2em;
+
+}
+
+
+.total-card strong,
+.payment-total strong {
+
+  display: block;
+
+  margin: 10px 0;
+
+  color: #c9a45c;
+
+  font-size: 46px;
+
+}
+
+
+.total-card span,
+.payment-total p {
+
+  color: #777;
+
+  font-size: 12px;
+
+}
+
+
+/* DOCUMENT */
+
+.document-card {
+
+  line-height: 1.9;
+
+}
+
+
+.document-card h2 {
+
+  margin-top: 0;
+
+}
+
+
+.document-card h3 {
+
+  margin-top: 30px;
+
+  color: #c9a45c;
+
+  font-size: 15px;
+
+}
+
+
+.document-card p {
+
+  color: #999;
+
+  font-size: 13px;
+
+}
+
+
+/* AGREEMENT */
+
+.agreement {
+
+  display: flex;
+
+  gap: 12px;
+
+  align-items: flex-start;
+
+  margin-top: 25px;
+
+  padding: 18px;
+
+  background: #111;
+
+  border: 1px solid #292929;
+
+}
+
+
+.agreement input {
+
+  margin-top: 3px;
+
+  accent-color: #c9a45c;
+
+}
+
+
+.agreement span {
+
+  color: #ccc;
+
+  line-height: 1.7;
+
+}
+
+
+/* SUMMARY */
+
+.summary-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid #292929;
+
+}
+
+
+.summary-row span {
+
+  color: #777;
+
+}
+
+
+.summary-row strong {
+
+  text-align: right;
+
+}
+
+
+.summary-total {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-top: 25px;
+
+}
+
+
+.summary-total strong {
+
+  color: #c9a45c;
+
+  font-size: 28px;
+
+}
+
+
+.contract-date {
+
+  margin: 20px 0;
+
+  color: #888;
+
+  font-size: 13px;
+
+}
+
+
+/* PAYMENT */
+
+.payment-method {
+
+  padding: 25px;
+
+  background: #181818;
+
+}
+
+
+.payment-method strong {
+
+  color: #c9a45c;
+
+  font-size: 20px;
+
+}
+
+
+.payment-method p {
+
+  color: #999;
+
+  line-height: 1.8;
+
+}
+
+
+.screenshot {
+
+  margin-top: 20px;
+
+  padding: 20px;
+
+  background: #17130d;
+
+  border-left: 3px solid #c9a45c;
+
+}
+
+
+.screenshot p {
+
+  color: #aaa;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+}
+
+
+.small-note {
+
+  color: #666;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+}
+
+
+/* COMPLETE */
+
+.complete-page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 30px 20px;
+
+}
+
+
+.complete-box {
+
+  width: 100%;
+
+  max-width: 560px;
+
+  text-align: center;
+
+}
+
+
+.complete-check {
+
+  width: 78px;
+
+  height: 78px;
+
+  margin: 0 auto 30px;
+
+  border: 1px solid #c9a45c;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #c9a45c;
+
+  font-size: 34px;
+
+}
+
+
+.complete-box h1 {
+
+  margin: 15px 0;
+
+  font-size: 48px;
+
+}
+
+
+.complete-message {
+
+  color: #888;
+
+}
+
+
+.complete-status {
+
+  margin-top: 40px;
+
+  padding: 25px;
+
+  background: #15120d;
+
+  border: 1px solid #3b311f;
+
+}
+
+
+.complete-status span {
+
+  display: block;
+
+  color: #777;
+
+  font-size: 10px;
+
+  letter-spacing: .2em;
+
+}
+
+
+.complete-status strong {
+
+  display: block;
+
+  margin-top: 8px;
+
+  color: #c9a45c;
+
+  font-size: 22px;
+
+}
+
+
+.complete-price {
+
+  margin-top: 25px;
+
+}
+
+
+.complete-price span {
+
+  display: block;
+
+  color: #777;
+
+  font-size: 12px;
+
+}
+
+
+.complete-price strong {
+
+  display: block;
+
+  margin-top: 8px;
+
+  color: #c9a45c;
+
+  font-size: 42px;
+
+}
+
+
+.complete-info {
+
+  margin-top: 25px;
+
+  border-top: 1px solid #292929;
+
+  border-bottom: 1px solid #292929;
+
+}
+
+
+.complete-info p {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 17px 0;
+
+  margin: 0;
+
+  border-bottom: 1px solid #202020;
+
+  color: #777;
+
+}
+
+
+.complete-info p:last-child {
+
+  border-bottom: none;
+
+}
+
+
+.complete-info strong {
+
+  color: #fff;
+
+}
+
+
+.next-flow {
+
+  margin-top: 35px;
+
+  text-align: left;
+
+}
+
+
+.next-flow h2 {
+
+  color: #c9a45c;
+
+  font-size: 12px;
+
+  letter-spacing: .15em;
+
+}
+
+
+.next-flow div {
+
+  padding: 13px 0;
+
+  color: #aaa;
+
+  border-bottom: 1px solid #222;
+
+  font-size: 13px;
+
+}
+
+
+.complete-note {
+
+  margin-top: 30px;
+
+  color: #555;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+}
+
+
+/* FOOTER */
+
+.footer {
+
+  padding: 35px 6%;
+
+  border-top: 1px solid #222;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #555;
+
+}
+
+
+.footer strong {
+
+  color: #fff;
+
+}
+
+
+.footer strong span {
+
+  color: #c9a45c;
+
+}
+
+
+.footer small {
+
+  font-size: 10px;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+  .header {
+    padding: 0 20px;
+  }
+
+
+  .hero {
+
+    padding:
+      90px 20px
+      100px;
+
+  }
+
+
+  .hero h1 {
+
+    font-size: 43px;
+
+  }
+
+
+  .flow-section,
+  .message-section {
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+
+  }
+
+
+  .flow-grid {
+
+    display: block;
+
+  }
+
+
+  .flow-card {
+
+    min-height: auto;
+
+    padding: 25px;
+
+    border-right: none;
+
+  }
+
+
+  .flow-card h3 {
+
+    margin-top: 35px;
+
+  }
+
+
+  .form-page {
+
+    padding:
+      50px 15px;
+
+  }
+
+
+  .form-card,
+  .document-card,
+  .summary-card,
+  .payment-card {
+
+    padding: 20px;
+
+  }
+
+
+  .page-heading h1 {
+
+    font-size: 36px;
+
+  }
+
+
+  .select-card {
+
+    align-items: flex-start;
+
+  }
+
+
+  .select-card b {
+
+    font-size: 12px;
+
+  }
+
+
+  .summary-row {
+
+    display: block;
+
+  }
+
+
+  .summary-row strong {
+
+    display: block;
+
+    margin-top: 6px;
+
+    text-align: left;
+
+  }
+
+
+  .complete-box h1 {
+
+    font-size: 40px;
+
+  }
+
+
+  .footer {
+
+    display: block;
+
+  }
+
+
+  .footer small {
+
+    display: block;
+
+    margin-top: 10px;
+
+  }
+
+}
