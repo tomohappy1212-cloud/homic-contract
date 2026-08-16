@@ -4,756 +4,163 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>HOMIC｜受付完了</title>
 
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background: #090909;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      #272019 0%,
-      #0d0d0d 42%,
-      #070707 100%
-    );
-
-  color: #fff;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    sans-serif;
-}
-
-
-/* =========================
-   PAGE
-========================= */
-
-.page {
-
-  min-height: 100vh;
-
-  display: flex;
-
-  justify-content: center;
-
-  padding: 70px 20px;
-
-}
-
-
-/* =========================
-   MAIN
-========================= */
-
-.main {
-
-  width: 100%;
-
-  max-width: 620px;
-
-}
-
-
-/* =========================
-   BRAND
-========================= */
-
-.brand {
-
-  text-align: center;
-
-  margin-bottom: 70px;
-
-}
-
-
-.brand-name {
-
-  margin: 0;
-
-  font-size: 18px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.28em;
-
-}
-
-
-.brand-line {
-
-  width: 38px;
-
-  height: 1px;
-
-  margin: 15px auto 0;
-
-  background: #c9a45c;
-
-}
-
-
-/* =========================
-   COMPLETE
-========================= */
-
-.complete {
-
-  text-align: center;
-
-}
-
-
-.check {
-
-  width: 82px;
-
-  height: 82px;
-
-  margin: 0 auto 32px;
-
-  border: 1px solid #c9a45c;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: #c9a45c;
-
-  font-size: 38px;
-
-  font-weight: 300;
-
-}
-
-
-.label {
-
-  margin: 0 0 14px;
-
-  color: #c9a45c;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.28em;
-
-}
-
-
-h1 {
-
-  margin: 0;
-
-  font-size: clamp(34px, 9vw, 52px);
-
-  font-weight: 800;
-
-  letter-spacing: 0.04em;
-
-}
-
-
-.message {
-
-  margin: 22px 0 0;
-
-  color: #aaa;
-
-  font-size: 14px;
-
-  line-height: 2;
-
-}
-
-
-/* =========================
-   GOLD LINE
-========================= */
-
-.gold-line {
-
-  width: 100%;
-
-  height: 1px;
-
-  margin: 55px 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #c9a45c,
-      transparent
-    );
-
-}
-
-
-/* =========================
-   PAYMENT
-========================= */
-
-.payment {
-
-  text-align: center;
-
-}
-
-
-.payment-label {
-
-  margin: 0;
-
-  color: #888;
-
-  font-size: 10px;
-
-  letter-spacing: 0.25em;
-
-}
-
-
-.payment-price {
-
-  margin: 12px 0 0;
-
-  color: #c9a45c;
-
-  font-size: clamp(42px, 11vw, 64px);
-
-  font-weight: 800;
-
-  letter-spacing: 0.02em;
-
-}
-
-
-.payment-price small {
-
-  font-size: 18px;
-
-  margin-left: 4px;
-
-}
-
-
-/* =========================
-   INFO
-========================= */
-
-.info {
-
-  margin-top: 45px;
-
-  border-top: 1px solid #292929;
-
-  border-bottom: 1px solid #292929;
-
-}
-
-
-.info-row {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding: 19px 4px;
-
-  border-bottom: 1px solid #1f1f1f;
-
-}
-
-
-.info-row:last-child {
-
-  border-bottom: none;
-
-}
-
-
-.info-label {
-
-  color: #777;
-
-  font-size: 12px;
-
-}
-
-
-.info-value {
-
-  color: #eee;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  text-align: right;
-
-  word-break: break-word;
-
-}
-
-
-/* =========================
-   NEXT
-========================= */
-
-.next {
-
-  margin-top: 55px;
-
-}
-
-
-.next-title {
-
-  margin: 0 0 25px;
-
-  color: #c9a45c;
-
-  font-size: 11px;
-
-  letter-spacing: 0.22em;
-
-}
-
-
-.step {
-
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 18px;
-
-  padding: 18px 0;
-
-}
-
-
-.step-number {
-
-  flex: 0 0 auto;
-
-  width: 30px;
-
-  height: 30px;
-
-  border: 1px solid #444;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: #c9a45c;
-
-  font-size: 11px;
-
-}
-
-
-.step-text strong {
-
-  display: block;
-
-  margin-bottom: 5px;
-
-  font-size: 14px;
-
-}
-
-
-.step-text span {
-
-  color: #777;
-
-  font-size: 12px;
-
-  line-height: 1.7;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-
-  margin-top: 70px;
-
-  text-align: center;
-
-  color: #555;
-
-  font-size: 10px;
-
-  letter-spacing: 0.15em;
-
-}
-
-
-@media (max-width: 480px) {
-
-  .page {
-
-    padding:
-      45px 20px 40px;
-
-  }
-
-  .brand {
-
-    margin-bottom: 55px;
-
-  }
-
-  .check {
-
-    width: 70px;
-
-    height: 70px;
-
-    font-size: 32px;
-
-  }
-
-  .gold-line {
-
-    margin: 42px 0;
-
-  }
-
-  .info-row {
-
-    padding: 16px 2px;
-
-  }
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
+<main class="complete-page">
 
-<div class="page">
+<div class="complete-box">
 
 
-<main class="main">
+<div class="complete-check">
+✓
+</div>
 
 
-  <!-- BRAND -->
+<div class="section-label">
+HOMIC WEB PRODUCTION
+</div>
 
-  <header class="brand">
 
-    <p class="brand-name">
-      HOMIC
-    </p>
+<h1>
+受付完了
+</h1>
 
-    <div class="brand-line"></div>
 
-  </header>
+<p class="complete-message">
+お支払いの申告を受け付けました。
+</p>
 
 
-  <!-- COMPLETE -->
+<div class="complete-status">
 
-  <section class="complete">
+<span>STATUS</span>
 
-    <div class="check">
-      ✓
-    </div>
-
-    <p class="label">
-      PAYMENT RECEIVED
-    </p>
-
-    <h1>
-      受付完了
-    </h1>
-
-    <p class="message">
-      お支払いの申告を受け付けました。<br>
-      現在、入金確認を行っています。
-    </p>
-
-  </section>
-
-
-  <div class="gold-line"></div>
-
-
-  <!-- PAYMENT -->
-
-  <section class="payment">
-
-    <p class="payment-label">
-      TOTAL PAYMENT
-    </p>
-
-    <p class="payment-price">
-
-      <span id="paymentTotal">
-        ¥0
-      </span>
-
-    </p>
-
-  </section>
-
-
-  <!-- INFO -->
-
-  <section class="info">
-
-
-    <div class="info-row">
-
-      <span class="info-label">
-        CONTRACT
-      </span>
-
-      <strong
-        id="contractNumber"
-        class="info-value"
-      >
-        —
-      </strong>
-
-    </div>
-
-
-    <div class="info-row">
-
-      <span class="info-label">
-        CUSTOMER
-      </span>
-
-      <strong
-        id="customerName"
-        class="info-value"
-      >
-        —
-      </strong>
-
-    </div>
-
-
-    <div class="info-row">
-
-      <span class="info-label">
-        STATUS
-      </span>
-
-      <strong class="info-value">
-        入金確認待ち
-      </strong>
-
-    </div>
-
-
-  </section>
-
-
-  <!-- NEXT -->
-
-  <section class="next">
-
-    <p class="next-title">
-      WHAT HAPPENS NEXT
-    </p>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        01
-      </div>
-
-      <div class="step-text">
-
-        <strong>
-          入金確認
-        </strong>
-
-        <span>
-          HOMICが実際の入金を確認します。
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        02
-      </div>
-
-      <div class="step-text">
-
-        <strong>
-          確認メール
-        </strong>
-
-        <span>
-          入金確認後、登録されたメールアドレスへ
-          ご連絡します。
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        03
-      </div>
-
-      <div class="step-text">
-
-        <strong>
-          制作開始
-        </strong>
-
-        <span>
-          入金確認後、ホームページ制作を開始します。
-        </span>
-
-      </div>
-
-    </div>
-
-
-  </section>
-
-
-  <footer class="footer">
-
-    HOMIC WEB PRODUCTION
-
-  </footer>
-
-
-</main>
+<strong>
+入金確認待ち
+</strong>
 
 </div>
 
 
+<div class="complete-price">
+
+<span>
+今回のお支払い
+</span>
+
+<strong id="total">
+0円
+</strong>
+
+</div>
+
+
+<div class="complete-info">
+
+<p>
+
+契約番号
+
+<strong id="contractNumber">
+—
+</strong>
+
+</p>
+
+
+<p>
+
+お客様
+
+<strong id="customerName">
+—
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="next-flow">
+
+<h2>
+この後の流れ
+</h2>
+
+<div>
+01　HOMICが入金を確認
+</div>
+
+<div>
+02　確認メールを送信
+</div>
+
+<div>
+03　ホームページ制作開始
+</div>
+
+</div>
+
+
+<p class="complete-note">
+
+支払い完了画面のスクリーンショットは、
+確認完了まで保存してください。
+
+</p>
+
+
+</div>
+
+</main>
+
+
 <script>
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+const STORAGE_KEY =
+"homicEstimate";
 
 
-    const saved =
-      localStorage.getItem(
-        "homicEstimate"
-      );
-
-
-    if (!saved) {
-
-      return;
-
-    }
-
-
-    let data;
-
-
-    try {
-
-      data =
-        JSON.parse(saved);
-
-    } catch {
-
-      return;
-
-    }
-
-
-    const total =
-      Number(
-        data.total || 0
-      );
-
-
-    document.getElementById(
-      "paymentTotal"
-    ).textContent =
-
-      "¥" +
-
-      new Intl.NumberFormat(
-        "ja-JP"
-      ).format(
-        total
-      );
-
-
-    document.getElementById(
-      "contractNumber"
-    ).textContent =
-      data.contractNumber || "—";
-
-
-    document.getElementById(
-      "customerName"
-    ).textContent =
-      data.customerName || "—";
-
-
-  }
+const data =
+JSON.parse(
+localStorage.getItem(STORAGE_KEY) || "null"
 );
+
+
+if(data){
+
+document.getElementById(
+"total"
+).textContent =
+
+new Intl.NumberFormat(
+"ja-JP"
+).format(data.total)
++ "円";
+
+
+document.getElementById(
+"contractNumber"
+).textContent =
+data.contractNumber;
+
+
+document.getElementById(
+"customerName"
+).textContent =
+data.customerName;
+
+}
 
 </script>
 
-
 </body>
-
 </html>
