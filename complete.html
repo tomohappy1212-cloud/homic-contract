@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>HOMIC｜受付完了</title>
+
+  <link
+    rel="stylesheet"
+    href="contract.css"
+  >
+
+</head>
+
+
+<body>
+
+<main class="contract-page">
+
+  <section class="contract-card">
+
+
+    <!-- HEADER -->
+
+    <div class="contract-header">
+
+      <p class="contract-label">
+        HOMIC WEB PRODUCTION
+      </p>
+
+      <h1>
+        受付完了
+      </h1>
+
+      <p>
+        お支払いの申告を受け付けました。
+      </p>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div class="price-summary">
+
+      <p class="price-summary-label">
+        STATUS
+      </p>
+
+      <p
+        style="
+          margin: 0;
+          font-size: 28px;
+          font-weight: 900;
+        "
+      >
+        入金確認待ち
+      </p>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="form-section">
+
+      <h2>
+        受付内容
+      </h2>
+
+
+      <div class="contract-info">
+
+        <p>
+          契約番号
+          <strong id="contractNumber">
+            —
+          </strong>
+        </p>
+
+
+        <p>
+          お客様名
+          <strong id="customerName">
+            —
+          </strong>
+        </p>
+
+
+        <p>
+          店舗・会社名
+          <strong id="shopName">
+            —
+          </strong>
+        </p>
+
+
+        <p>
+          お支払い金額
+          <strong id="paymentTotal">
+            —
+          </strong>
+        </p>
+
+
+        <p>
+          支払い申告日時
+          <strong id="paymentDate">
+            —
+          </strong>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- NEXT STEP -->
+
+    <div class="terms-box">
+
+      <h2>
+        この後の流れ
+      </h2>
+
+
+      <p>
+        ① HOMICが実際の入金を確認します。
+      </p>
+
+
+      <p>
+        ② 入金確認後、登録されたメールアドレスへ
+        確認メールを送信します。
+      </p>
+
+
+      <p>
+        ③ 入金確認が完了した後、ホームページ制作を開始します。
+      </p>
+
+
+      <h2>
+        大切なお知らせ
+      </h2>
+
+
+      <p>
+        この画面が表示された時点では、
+        まだHOMIC側で入金確認は完了していません。
+      </p>
+
+
+      <p>
+        支払い完了画面のスクリーンショットは、
+        HOMICから確認の連絡があるまで保存してください。
+      </p>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="agreement-area">
+
+      <p
+        style="
+          margin-top: 0;
+          font-weight: 800;
+        "
+      >
+        契約番号を控えておいてください。
+      </p>
+
+
+      <button
+        type="button"
+        id="copyButton"
+        class="contract-button"
+      >
+        契約番号をコピー
+      </button>
+
+    </div>
+
+
+    <p class="contract-note">
+
+      HOMICからの確認メールをお待ちください。
+
+    </p>
+
+
+  </section>
+
+</main>
+
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+
+    /* ==========================================
+       LOAD DATA
+    ========================================== */
+
+    const saved =
+      localStorage.getItem(
+        "homicEstimate"
+      );
+
+
+    if (!saved) {
+
+      alert(
+        "受付情報が見つかりません。"
+      );
+
+      window.location.href =
+        "terms.html";
+
+      return;
+
+    }
+
+
+    let data;
+
+    try {
+
+      data =
+        JSON.parse(saved);
+
+    } catch (error) {
+
+      alert(
+        "受付情報の読み込みに失敗しました。"
+      );
+
+      window.location.href =
+        "terms.html";
+
+      return;
+
+    }
+
+
+    /* ==========================================
+       ELEMENTS
+    ========================================== */
+
+    const contractNumber =
+      document.getElementById(
+        "contractNumber"
+      );
+
+    const customerName =
+      document.getElementById(
+        "customerName"
+      );
+
+    const shopName =
+      document.getElementById(
+        "shopName"
+      );
+
+    const paymentTotal =
+      document.getElementById(
+        "paymentTotal"
+      );
+
+    const paymentDate =
+      document.getElementById(
+        "paymentDate"
+      );
+
+    const copyButton =
+      document.getElementById(
+        "copyButton"
+      );
+
+
+    /* ==========================================
+       DISPLAY
+    ========================================== */
+
+    contractNumber.textContent =
+      data.contractNumber || "—";
+
+
+    customerName.textContent =
+      data.customerName || "—";
+
+
+    shopName.textContent =
+      data.shopName || "未入力";
+
+
+    paymentTotal.textContent =
+      formatPrice(
+        Number(
+          data.total || 0
+        )
+      );
+
+
+    if (
+      data.paymentSubmittedAt
+    ) {
+
+      paymentDate.textContent =
+        formatDate(
+          data.paymentSubmittedAt
+        );
+
+    }
+
+
+    /* ==========================================
+       COPY
+    ========================================== */
+
+    copyButton.addEventListener(
+      "click",
+      async () => {
+
+        const number =
+          data.contractNumber || "";
+
+        try {
+
+          await navigator.clipboard.writeText(
+            number
+          );
+
+          copyButton.textContent =
+            "コピーしました ✓";
+
+
+          setTimeout(
+            () => {
+
+              copyButton.textContent =
+                "契約番号をコピー";
+
+            },
+            2000
+          );
+
+        } catch (error) {
+
+          alert(
+            "契約番号：" + number
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* ==========================================
+     PRICE
+  ========================================== */
+
+  function formatPrice(price) {
+
+    return new Intl.NumberFormat(
+      "ja-JP"
+    ).format(price) + "円";
+
+  }
+
+
+  /* ==========================================
+     DATE
+  ========================================== */
+
+  function formatDate(dateString) {
+
+    const date =
+      new Date(
+        dateString
+      );
+
+
+    return (
+
+      date.getFullYear() +
+      "年" +
+
+      String(
+        date.getMonth() + 1
+      ).padStart(2, "0") +
+
+      "月" +
+
+      String(
+        date.getDate()
+      ).padStart(2, "0") +
+
+      "日 " +
+
+      String(
+        date.getHours()
+      ).padStart(2, "0") +
+
+      ":" +
+
+      String(
+        date.getMinutes()
+      ).padStart(2, "0")
+
+    );
+
+  }
+
+</script>
+
+
+</body>
+
+</html>
