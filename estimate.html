@@ -10,12 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>HOMIC｜お見積り・お支払い</title>
-
-  <meta
-    name="description"
-    content="HOMIC Web制作サービスのお見積り・お支払い確認ページです。"
-  >
+  <title>HOMIC｜お見積り</title>
 
   <link
     rel="stylesheet"
@@ -28,81 +23,36 @@
 <body>
 
 
-<header class="contract-header">
-
-  <a
-    href="index.html"
-    class="contract-logo"
-  >
-    HOMIC<span>.</span>
-  </a>
-
-  <div class="document-label">
-    ESTIMATE
-  </div>
-
-</header>
+<main class="contract-page">
 
 
-
-<main class="document-page">
-
-
-  <!-- =========================
-       TITLE
-  ========================== -->
-
-  <div class="document-head">
-
-    <p>
-      HOMIC WEB PRODUCTION
-    </p>
-
-    <h1>
-      お見積り
-    </h1>
-
-    <span>
-      Webサイト制作プラン
-    </span>
-
-  </div>
+  <section class="contract-card">
 
 
+    <!-- HEADER -->
 
-  <!-- =========================
-       CUSTOMER
-  ========================== -->
+    <div class="contract-header">
 
-  <section class="document-card">
+      <p class="contract-label">
+        HOMIC WEB PRODUCTION
+      </p>
 
+      <h1>
+        お見積り
+      </h1>
 
-    <div class="notice">
-
-      お客様のご希望に合わせてプランと
-      オプションを選択してください。
-
-      <br>
-
-      選択内容に応じて総支払額が自動計算されます。
-
-      <br>
-
-      金額をご確認のうえ、
-      PayPayなどの方法でお支払いください。
+      <p>
+        必要事項を入力して、制作内容と料金をご確認ください。
+      </p>
 
     </div>
 
 
+    <!-- CUSTOMER -->
 
-    <!-- =========================
-         CUSTOMER INFO
-    ========================== -->
+    <div class="form-section">
 
-    <div class="input-grid">
-
-
-      <div class="input-group">
+      <div class="form-group">
 
         <label for="customerName">
           お客様名
@@ -112,12 +62,13 @@
           type="text"
           id="customerName"
           placeholder="例：山田 太郎"
+          autocomplete="name"
         >
 
       </div>
 
 
-      <div class="input-group">
+      <div class="form-group">
 
         <label for="shopName">
           店舗・会社名
@@ -126,13 +77,13 @@
         <input
           type="text"
           id="shopName"
-          placeholder="例：HOMIC CAFE"
+          placeholder="例：○○美容室"
         >
 
       </div>
 
 
-      <div class="input-group full">
+      <div class="form-group">
 
         <label for="customerEmail">
           メールアドレス
@@ -141,41 +92,28 @@
         <input
           type="email"
           id="customerEmail"
-          placeholder="例：example@email.com"
+          placeholder="example@email.com"
+          autocomplete="email"
         >
 
       </div>
 
-
     </div>
 
 
+    <!-- PLAN -->
 
-    <!-- =========================
-         PLAN
-    ========================== -->
+    <div class="form-section">
 
-    <div class="estimate-section">
-
-
-      <div class="estimate-section-title">
-
-        <p>
-          STEP 01
-        </p>
-
-        <h2>
-          プランを選択
-        </h2>
-
-      </div>
+      <h2>
+        プランを選択
+      </h2>
 
 
+      <div class="plan-list">
 
-      <div class="plan-select-grid">
 
-
-        <label class="select-plan">
+        <label class="plan-option">
 
           <input
             type="radio"
@@ -184,27 +122,28 @@
             data-plan="STARTER"
           >
 
-          <div>
-
-            <span>
-              STARTER
-            </span>
+          <span>
 
             <strong>
-              10,000円〜
+              STARTER
             </strong>
 
-            <p>
-              シンプルな1ページサイト
-            </p>
+            <br>
 
-          </div>
+            シンプルホームページ
+
+            <br>
+
+            <b>
+              10,000円〜
+            </b>
+
+          </span>
 
         </label>
 
 
-
-        <label class="select-plan">
+        <label class="plan-option">
 
           <input
             type="radio"
@@ -213,27 +152,28 @@
             data-plan="STANDARD"
           >
 
-          <div>
-
-            <span>
-              STANDARD
-            </span>
+          <span>
 
             <strong>
-              30,000円〜
+              STANDARD
             </strong>
 
-            <p>
-              3〜5ページのサイト
-            </p>
+            <br>
 
-          </div>
+            しっかり伝わるホームページ
+
+            <br>
+
+            <b>
+              30,000円〜
+            </b>
+
+          </span>
 
         </label>
 
 
-
-        <label class="select-plan">
+        <label class="plan-option">
 
           <input
             type="radio"
@@ -242,188 +182,199 @@
             data-plan="CUSTOM"
           >
 
-          <div>
-
-            <span>
-              CUSTOM
-            </span>
+          <span>
 
             <strong>
-              50,000円〜
+              CUSTOM
             </strong>
 
-            <p>
-              こだわり・特殊機能対応
-            </p>
+            <br>
 
-          </div>
+            こだわりホームページ
+
+            <br>
+
+            <b>
+              50,000円〜
+            </b>
+
+          </span>
 
         </label>
 
 
       </div>
-
 
     </div>
 
 
+    <!-- OPTIONS -->
 
-    <!-- =========================
-         OPTIONS
-    ========================== -->
+    <div class="form-section">
 
-    <div class="estimate-section">
-
-
-      <div class="estimate-section-title">
-
-        <p>
-          STEP 02
-        </p>
-
-        <h2>
-          オプション
-        </h2>
-
-      </div>
+      <h2>
+        オプション
+      </h2>
 
 
+      <label class="option-row">
 
-      <div class="option-list">
-
-
-        <label class="option-item">
-
-          <input
-            type="checkbox"
-            class="option"
-            value="5000"
-            data-name="追加ページ"
-          >
-
-          <span>
-            追加ページ
-          </span>
-
-          <strong>
-            +5,000円
-          </strong>
-
-        </label>
-
-
-
-        <label class="option-item">
-
-          <input
-            type="checkbox"
-            class="option"
-            value="5000"
-            data-name="追加修正"
-          >
-
-          <span>
-            追加修正
-          </span>
-
-          <strong>
-            +5,000円
-          </strong>
-
-        </label>
-
-
-
-        <label class="option-item">
-
-          <input
-            type="checkbox"
-            class="option"
-            value="10000"
-            data-name="予約機能"
-          >
-
-          <span>
-            予約機能
-          </span>
-
-          <strong>
-            +10,000円
-          </strong>
-
-        </label>
-
-
-
-        <label class="option-item">
-
-          <input
-            type="checkbox"
-            class="option"
-            value="10000"
-            data-name="特殊機能"
-          >
-
-          <span>
-            特殊機能
-          </span>
-
-          <strong>
-            +10,000円〜
-          </strong>
-
-        </label>
-
-
-
-        <label class="option-item">
-
-          <input
-            type="checkbox"
-            class="option"
-            value="10000"
-            data-name="Webアプリ"
-          >
-
-          <span>
-            Webアプリ
-          </span>
-
-          <strong>
-            +10,000円〜
-          </strong>
-
-        </label>
-
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- =========================
-         TOTAL
-    ========================== -->
-
-    <div class="estimate-total large-total">
-
-
-      <div>
+        <input
+          type="checkbox"
+          class="option"
+          value="5000"
+          data-name="追加ページ"
+        >
 
         <span>
-          総支払額
+          追加ページ
         </span>
 
-        <p>
-          選択内容をもとに計算
-        </p>
+        <strong>
+          +5,000円
+        </strong>
 
+      </label>
+
+
+      <label class="option-row">
+
+        <input
+          type="checkbox"
+          class="option"
+          value="10000"
+          data-name="予約機能"
+        >
+
+        <span>
+          予約機能
+        </span>
+
+        <strong>
+          +10,000円
+        </strong>
+
+      </label>
+
+
+      <label class="option-row">
+
+        <input
+          type="checkbox"
+          class="option"
+          value="10000"
+          data-name="お問い合わせフォーム"
+        >
+
+        <span>
+          お問い合わせフォーム
+        </span>
+
+        <strong>
+          +10,000円
+        </strong>
+
+      </label>
+
+
+      <label class="option-row">
+
+        <input
+          type="checkbox"
+          class="option"
+          value="5000"
+          data-name="SNS連携"
+        >
+
+        <span>
+          SNS連携
+        </span>
+
+        <strong>
+          +5,000円
+        </strong>
+
+      </label>
+
+
+      <label class="option-row">
+
+        <input
+          type="checkbox"
+          class="option"
+          value="10000"
+          data-name="基本SEO設定"
+        >
+
+        <span>
+          基本SEO設定
+        </span>
+
+        <strong>
+          +10,000円
+        </strong>
+
+      </label>
+
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="price-summary">
+
+      <p class="price-summary-label">
+        TOTAL
+      </p>
+
+      <p
+        id="estimateTotal"
+        class="price-summary-total"
+      >
+        0円
+      </p>
+
+    </div>
+
+
+    <!-- DETAIL -->
+
+    <div class="form-section">
+
+      <h2>
+        お見積り内容
+      </h2>
+
+
+      <p>
+        プラン：
+        <strong id="selectedPlan">
+          未選択
+        </strong>
+      </p>
+
+
+      <p>
+        オプション：
+      </p>
+
+      <div id="selectedOptions">
+        なし
       </div>
 
 
-      <strong id="estimateTotal">
+      <hr>
+
+
+      <p>
+        総支払額：
+      </p>
+
+      <strong
+        id="summaryTotal"
+        style="font-size: 28px;"
+      >
         0円
       </strong>
 
@@ -431,233 +382,51 @@
     </div>
 
 
+    <!-- AGREEMENT -->
 
-    <!-- =========================
-         SELECTED PLAN
-    ========================== -->
+    <div class="agreement-area">
 
-    <div class="selected-summary">
-
-      <h2>
-        お見積り内容
-      </h2>
-
-
-      <div class="summary-row">
-
-        <span>
-          プラン
-        </span>
-
-        <strong id="selectedPlan">
-          未選択
-        </strong>
-
-      </div>
-
-
-      <div class="summary-row">
-
-        <span>
-          オプション
-        </span>
-
-        <strong id="selectedOptions">
-          なし
-        </strong>
-
-      </div>
-
-
-      <div class="summary-row total-row">
-
-        <span>
-          総支払額
-        </span>
-
-        <strong id="summaryTotal">
-          0円
-        </strong>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- =========================
-         PAYMENT
-    ========================== -->
-
-    <div class="payment-box">
-
-
-      <p class="payment-label">
-        PAYMENT
-      </p>
-
-
-      <h2>
-        お支払いについて
-      </h2>
-
-
-      <p>
-
-        上記の総支払額をご確認のうえ、
-        PayPayなど、HOMICが指定する方法で
-        お支払いください。
-
-      </p>
-
-
-      <div class="payment-warning">
-
-        <strong>
-          ご注意
-        </strong>
-
-        <p>
-
-          この画面はお見積り内容を確認するためのものです。
-
-          <br>
-
-          HOMIC側で実際のお支払いを確認するまで、
-          「支払い完了」とはなりません。
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- =========================
-         SCREENSHOT
-    ========================== -->
-
-    <div class="screenshot-box">
-
-
-      <div class="screenshot-icon">
-        ✓
-      </div>
-
-
-      <div>
-
-        <h2>
-          お支払い後はスクリーンショットを保存
-        </h2>
-
-
-        <p>
-
-          お支払い後、このお見積り画面を
-          スクリーンショットして保存してください。
-
-          <br>
-
-          HOMIC側で入金を確認する際に
-          照合させていただきます。
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- =========================
-         AGREEMENT
-    ========================== -->
-
-    <div class="agreement-box">
-
-
-      <div class="agreement-check">
+      <label class="agreement-check">
 
         <input
           type="checkbox"
           id="estimateAgree"
         >
 
-        <label for="estimateAgree">
-
+        <span>
           お見積り内容・総支払額を確認しました。
+        </span>
 
-        </label>
-
-      </div>
+      </label>
 
 
       <button
         type="button"
         id="estimateButton"
-        class="agree-button"
+        class="contract-button"
         disabled
       >
-
-        見積内容を確定する
-
-        <span>
-          →
-        </span>
-
+        見積を確定して契約へ →
       </button>
 
-
-      <p class="agreement-note">
-
-        確定後、契約番号とお見積り内容を記録します。
-
-      </p>
-
-
     </div>
+
+
+    <p class="contract-note">
+
+      ※確定後、契約内容の確認ページへ進みます。
+
+    </p>
 
 
   </section>
 
 
-
-  <!-- =========================
-       NOTE
-  ========================== -->
-
-  <div class="system-note">
-
-    <span>
-      HOMIC CONTRACT SYSTEM
-    </span>
-
-    <p>
-      金額・内容についてご不明な点がございましたら、
-      お支払い前にHOMICまでお問い合わせください。
-    </p>
-
-  </div>
-
-
 </main>
 
 
-
-<footer class="contract-footer">
-
-  HOMIC. — AI × WEB PRODUCTION
-
-</footer>
-
-
-
 <script src="contract.js"></script>
+
 
 </body>
 
