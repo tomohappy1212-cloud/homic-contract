@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HOMIC｜お支払い</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<a href="index.html" class="logo">
+HOMIC<span>.</span>
+</a>
+
+<div class="header-sub">
+PAYMENT
+</div>
+
+</header>
+
+
+<main class="form-page">
+
+<div class="form-container">
+
+
+<div class="page-heading">
+
+<div class="section-label">
+STEP 04 / PAYMENT
+</div>
+
+<h1>お支払い</h1>
+
+<p>
+契約内容をご確認のうえ、
+表示された金額をお支払いください。
+</p>
+
+</div>
+
+
+<section class="payment-total">
+
+<span>TOTAL PAYMENT</span>
+
+<strong id="total">
+0円
+</strong>
+
+<p>
+今回のお支払い総額
+</p>
+
+</section>
+
+
+<section class="payment-card">
+
+<h2>
+お支払い方法
+</h2>
+
+
+<div class="payment-method">
+
+<strong>
+PayPay
+</strong>
+
+<p>
+HOMICから案内されたPayPay送金先へ
+上記の総額をお支払いください。
+</p>
+
+</div>
+
+
+<div class="screenshot">
+
+<strong>
+お支払い後のお願い
+</strong>
+
+<p>
+支払い完了画面を
+<strong>スクリーンショット</strong>
+してください。
+</p>
+
+<p>
+スクリーンショットは
+入金確認が完了するまで保存してください。
+</p>
+
+</div>
+
+</section>
+
+
+<label class="agreement">
+
+<input
+type="checkbox"
+id="paymentCheck"
+>
+
+<span>
+支払いを完了し、
+支払い完了画面のスクリーンショットを
+保存しました。
+</span>
+
+</label>
+
+
+<button
+id="paymentButton"
+class="main-button"
+disabled
+>
+支払い完了として申告 →
+</button>
+
+
+<p class="small-note">
+
+※このボタンを押した時点では、
+HOMIC側の入金確認は完了していません。
+
+</p>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+const STORAGE_KEY =
+"homicEstimate";
+
+
+const data =
+JSON.parse(
+localStorage.getItem(STORAGE_KEY) || "null"
+);
+
+
+if(!data){
+
+alert(
+"先にお見積もりを作成してください。"
+);
+
+window.location.href =
+"estimate.html";
+
+}
+
+
+if(!data.contractAccepted){
+
+alert(
+"先に契約を確定してください。"
+);
+
+window.location.href =
+"contract.html";
+
+}
+
+
+document.getElementById(
+"total"
+).textContent =
+
+new Intl.NumberFormat(
+"ja-JP"
+).format(data.total)
++ "円";
+
+
+const check =
+document.getElementById(
+"paymentCheck"
+);
+
+
+const button =
+document.getElementById(
+"paymentButton"
+);
+
+
+check.addEventListener(
+"change",
+function(){
+
+button.disabled =
+!this.checked;
+
+});
+
+
+button.addEventListener(
+"click",
+function(){
+
+data.paymentSubmitted =
+true;
+
+data.paymentSubmittedAt =
+new Date().toISOString();
+
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
+
+
+window.location.href =
+"complete.html";
+
+});
+
+</script>
+
+</body>
+</html>
