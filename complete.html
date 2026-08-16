@@ -17,184 +17,330 @@
     href="contract.css"
   >
 
+  <style>
+
+    .complete-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 16px;
+    }
+
+    .complete-card {
+      width: min(620px, 100%);
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 42px 28px;
+      text-align: center;
+      box-shadow:
+        0 18px 50px rgba(40, 30, 25, 0.10);
+    }
+
+    .complete-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: #71372d;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    .complete-label {
+      margin: 0 0 10px;
+      color: #71372d;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    .complete-title {
+      margin: 0;
+      color: #211b19;
+      font-size: clamp(30px, 8vw, 46px);
+      line-height: 1.25;
+    }
+
+    .complete-message {
+      margin: 18px auto 0;
+      color: #625954;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .status-box {
+      margin-top: 30px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f4f1ed;
+    }
+
+    .status-label {
+      margin: 0;
+      color: #756b65;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    .status-text {
+      margin: 6px 0 0;
+      color: #71372d;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .info-box {
+      margin-top: 16px;
+      padding: 20px;
+      border: 1px solid #e1d9d3;
+      border-radius: 16px;
+      text-align: left;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee9e5;
+      font-size: 14px;
+    }
+
+    .info-row:last-child {
+      border-bottom: 0;
+    }
+
+    .info-row span {
+      color: #756b65;
+    }
+
+    .info-row strong {
+      color: #241f1c;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .next-box {
+      margin-top: 16px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #71372d;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .next-box h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .next-box p {
+      margin: 8px 0;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .copy-button {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 10px;
+      background: #211b19;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy-button:active {
+      transform: scale(0.98);
+    }
+
+    .complete-note {
+      margin: 20px 0 0;
+      color: #817771;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 480px) {
+
+      .complete-card {
+        padding: 34px 18px;
+        border-radius: 20px;
+      }
+
+      .complete-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 31px;
+      }
+
+      .info-row {
+        display: block;
+      }
+
+      .info-row strong {
+        display: block;
+        margin-top: 4px;
+        text-align: left;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
 <body>
 
-<main class="contract-page">
+<main class="complete-page">
 
-  <section class="contract-card">
+  <section class="complete-card">
 
 
-    <!-- HEADER -->
+    <!-- COMPLETE -->
 
-    <div class="contract-header">
-
-      <p class="contract-label">
-        HOMIC WEB PRODUCTION
-      </p>
-
-      <h1>
-        受付完了
-      </h1>
-
-      <p>
-        お支払いの申告を受け付けました。
-      </p>
-
+    <div class="complete-icon">
+      ✓
     </div>
+
+
+    <p class="complete-label">
+      HOMIC WEB PRODUCTION
+    </p>
+
+
+    <h1 class="complete-title">
+      受付完了
+    </h1>
+
+
+    <p class="complete-message">
+      お支払いの申告を受け付けました。<br>
+      ご利用ありがとうございます。
+    </p>
 
 
     <!-- STATUS -->
 
-    <div class="price-summary">
+    <div class="status-box">
 
-      <p class="price-summary-label">
-        STATUS
+      <p class="status-label">
+        PAYMENT STATUS
       </p>
 
-      <p
-        style="
-          margin: 0;
-          font-size: 28px;
-          font-weight: 900;
-        "
-      >
+      <p class="status-text">
         入金確認待ち
       </p>
 
     </div>
 
 
-    <!-- INFORMATION -->
+    <!-- INFO -->
 
-    <div class="form-section">
+    <div class="info-box">
 
-      <h2>
-        受付内容
-      </h2>
+      <div class="info-row">
 
-
-      <div class="contract-info">
-
-        <p>
+        <span>
           契約番号
-          <strong id="contractNumber">
-            —
-          </strong>
-        </p>
+        </span>
+
+        <strong id="contractNumber">
+          —
+        </strong>
+
+      </div>
 
 
-        <p>
+      <div class="info-row">
+
+        <span>
           お客様名
-          <strong id="customerName">
-            —
-          </strong>
-        </p>
+        </span>
+
+        <strong id="customerName">
+          —
+        </strong>
+
+      </div>
 
 
-        <p>
-          店舗・会社名
-          <strong id="shopName">
-            —
-          </strong>
-        </p>
+      <div class="info-row">
 
-
-        <p>
+        <span>
           お支払い金額
-          <strong id="paymentTotal">
-            —
-          </strong>
-        </p>
+        </span>
+
+        <strong id="paymentTotal">
+          —
+        </strong>
+
+      </div>
 
 
-        <p>
-          支払い申告日時
-          <strong id="paymentDate">
-            —
-          </strong>
-        </p>
+      <div class="info-row">
+
+        <span>
+          申告日時
+        </span>
+
+        <strong id="paymentDate">
+          —
+        </strong>
 
       </div>
 
     </div>
 
 
-    <!-- NEXT STEP -->
+    <!-- NEXT -->
 
-    <div class="terms-box">
+    <div class="next-box">
 
       <h2>
         この後の流れ
       </h2>
 
-
       <p>
         ① HOMICが実際の入金を確認します。
       </p>
 
-
       <p>
         ② 入金確認後、登録されたメールアドレスへ
-        確認メールを送信します。
+        確認メールをお送りします。
       </p>
 
-
       <p>
-        ③ 入金確認が完了した後、ホームページ制作を開始します。
-      </p>
-
-
-      <h2>
-        大切なお知らせ
-      </h2>
-
-
-      <p>
-        この画面が表示された時点では、
-        まだHOMIC側で入金確認は完了していません。
-      </p>
-
-
-      <p>
-        支払い完了画面のスクリーンショットは、
-        HOMICから確認の連絡があるまで保存してください。
+        ③ 入金確認後、ホームページ制作を開始します。
       </p>
 
     </div>
 
 
-    <!-- CONTACT -->
+    <!-- COPY -->
 
-    <div class="agreement-area">
-
-      <p
-        style="
-          margin-top: 0;
-          font-weight: 800;
-        "
-      >
-        契約番号を控えておいてください。
-      </p>
+    <button
+      type="button"
+      id="copyButton"
+      class="copy-button"
+    >
+      契約番号をコピー
+    </button>
 
 
-      <button
-        type="button"
-        id="copyButton"
-        class="contract-button"
-      >
-        契約番号をコピー
-      </button>
-
-    </div>
-
-
-    <p class="contract-note">
-
-      HOMICからの確認メールをお待ちください。
-
+    <p class="complete-note">
+      ※支払い完了画面のスクリーンショットは、
+      HOMICから確認の連絡があるまで保存してください。
     </p>
 
 
@@ -209,10 +355,6 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-
-    /* ==========================================
-       LOAD DATA
-    ========================================== */
 
     const saved =
       localStorage.getItem(
@@ -236,6 +378,7 @@ document.addEventListener(
 
     let data;
 
+
     try {
 
       data =
@@ -247,66 +390,26 @@ document.addEventListener(
         "受付情報の読み込みに失敗しました。"
       );
 
-      window.location.href =
-        "terms.html";
-
       return;
 
     }
 
 
-    /* ==========================================
-       ELEMENTS
-    ========================================== */
-
-    const contractNumber =
-      document.getElementById(
-        "contractNumber"
-      );
-
-    const customerName =
-      document.getElementById(
-        "customerName"
-      );
-
-    const shopName =
-      document.getElementById(
-        "shopName"
-      );
-
-    const paymentTotal =
-      document.getElementById(
-        "paymentTotal"
-      );
-
-    const paymentDate =
-      document.getElementById(
-        "paymentDate"
-      );
-
-    const copyButton =
-      document.getElementById(
-        "copyButton"
-      );
-
-
-    /* ==========================================
-       DISPLAY
-    ========================================== */
-
-    contractNumber.textContent =
+    document.getElementById(
+      "contractNumber"
+    ).textContent =
       data.contractNumber || "—";
 
 
-    customerName.textContent =
+    document.getElementById(
+      "customerName"
+    ).textContent =
       data.customerName || "—";
 
 
-    shopName.textContent =
-      data.shopName || "未入力";
-
-
-    paymentTotal.textContent =
+    document.getElementById(
+      "paymentTotal"
+    ).textContent =
       formatPrice(
         Number(
           data.total || 0
@@ -318,7 +421,9 @@ document.addEventListener(
       data.paymentSubmittedAt
     ) {
 
-      paymentDate.textContent =
+      document.getElementById(
+        "paymentDate"
+      ).textContent =
         formatDate(
           data.paymentSubmittedAt
         );
@@ -326,16 +431,16 @@ document.addEventListener(
     }
 
 
-    /* ==========================================
-       COPY
-    ========================================== */
-
-    copyButton.addEventListener(
+    document.getElementById(
+      "copyButton"
+    ).addEventListener(
       "click",
       async () => {
 
+
         const number =
           data.contractNumber || "";
+
 
         try {
 
@@ -343,19 +448,27 @@ document.addEventListener(
             number
           );
 
-          copyButton.textContent =
+
+          const button =
+            document.getElementById(
+              "copyButton"
+            );
+
+
+          button.textContent =
             "コピーしました ✓";
 
 
           setTimeout(
             () => {
 
-              copyButton.textContent =
+              button.textContent =
                 "契約番号をコピー";
 
             },
             2000
           );
+
 
         } catch (error) {
 
@@ -369,63 +482,56 @@ document.addEventListener(
     );
 
   }
+);
 
 
-  /* ==========================================
-     PRICE
-  ========================================== */
+function formatPrice(price) {
 
-  function formatPrice(price) {
+  return new Intl.NumberFormat(
+    "ja-JP"
+  ).format(price) + "円";
 
-    return new Intl.NumberFormat(
-      "ja-JP"
-    ).format(price) + "円";
-
-  }
+}
 
 
-  /* ==========================================
-     DATE
-  ========================================== */
+function formatDate(dateString) {
 
-  function formatDate(dateString) {
-
-    const date =
-      new Date(
-        dateString
-      );
-
-
-    return (
-
-      date.getFullYear() +
-      "年" +
-
-      String(
-        date.getMonth() + 1
-      ).padStart(2, "0") +
-
-      "月" +
-
-      String(
-        date.getDate()
-      ).padStart(2, "0") +
-
-      "日 " +
-
-      String(
-        date.getHours()
-      ).padStart(2, "0") +
-
-      ":" +
-
-      String(
-        date.getMinutes()
-      ).padStart(2, "0")
-
+  const date =
+    new Date(
+      dateString
     );
 
-  }
+
+  return (
+
+    date.getFullYear() +
+    "/" +
+
+    String(
+      date.getMonth() + 1
+    ).padStart(2, "0") +
+
+    "/" +
+
+    String(
+      date.getDate()
+    ).padStart(2, "0") +
+
+    " " +
+
+    String(
+      date.getHours()
+    ).padStart(2, "0") +
+
+    ":" +
+
+    String(
+      date.getMinutes()
+    ).padStart(2, "0")
+
+  );
+
+}
 
 </script>
 
