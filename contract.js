@@ -1,60 +1,73 @@
-/* ==================================================
-   HOMIC CONTRACT SYSTEM
-   contract.js
-================================================== */
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbxgL80KwpyjE2iDZV9JbXDfssrAZcvB2awwq6-oyI2ytOQ6qH5KDJCObxL02NloMAirdw/exec";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const planInputs = document.querySelectorAll(
-    'input[name="plan"]'
-  );
+  const planInputs =
+    document.querySelectorAll(
+      'input[name="plan"]'
+    );
 
-  const optionInputs = document.querySelectorAll(
-    ".option"
-  );
+  const optionInputs =
+    document.querySelectorAll(
+      ".option"
+    );
 
   const totalElement =
-    document.getElementById("estimateTotal");
+    document.getElementById(
+      "estimateTotal"
+    );
 
   const summaryTotalElement =
-    document.getElementById("summaryTotal");
+    document.getElementById(
+      "summaryTotal"
+    );
 
   const selectedPlanElement =
-    document.getElementById("selectedPlan");
+    document.getElementById(
+      "selectedPlan"
+    );
 
   const selectedOptionsElement =
-    document.getElementById("selectedOptions");
+    document.getElementById(
+      "selectedOptions"
+    );
 
   const agreementCheckbox =
-    document.getElementById("estimateAgree");
+    document.getElementById(
+      "estimateAgree"
+    );
 
   const estimateButton =
-    document.getElementById("estimateButton");
+    document.getElementById(
+      "estimateButton"
+    );
 
   const customerName =
-    document.getElementById("customerName");
+    document.getElementById(
+      "customerName"
+    );
 
   const shopName =
-    document.getElementById("shopName");
+    document.getElementById(
+      "shopName"
+    );
 
   const customerEmail =
-    document.getElementById("customerEmail");
+    document.getElementById(
+      "customerEmail"
+    );
 
-
-  /* ==================================================
-     FORMAT PRICE
-  ================================================== */
 
   function formatPrice(price) {
 
-    return new Intl.NumberFormat("ja-JP").format(price) + "円";
+    return new Intl.NumberFormat(
+      "ja-JP"
+    ).format(price) + "円";
 
   }
 
-
-  /* ==================================================
-     GET SELECTED PLAN
-  ================================================== */
 
   function getSelectedPlan() {
 
@@ -64,9 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
     if (!selected) {
-
       return null;
-
     }
 
     return {
@@ -81,10 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
-  /* ==================================================
-     GET SELECTED OPTIONS
-  ================================================== */
 
   function getSelectedOptions() {
 
@@ -113,10 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==================================================
-     CALCULATE TOTAL
-  ================================================== */
-
   function calculateTotal() {
 
     const plan =
@@ -124,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const options =
       getSelectedOptions();
-
 
     let total = 0;
 
@@ -148,10 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==================================================
-     UPDATE SCREEN
-  ================================================== */
-
   function updateEstimate() {
 
     const plan =
@@ -164,28 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
       calculateTotal();
 
 
-    /* ---------- TOTAL ---------- */
+    totalElement.textContent =
+      formatPrice(total);
 
-    if (total === 0) {
+    summaryTotalElement.textContent =
+      formatPrice(total);
 
-      totalElement.textContent =
-        "0円";
-
-      summaryTotalElement.textContent =
-        "0円";
-
-    } else {
-
-      totalElement.textContent =
-        formatPrice(total);
-
-      summaryTotalElement.textContent =
-        formatPrice(total);
-
-    }
-
-
-    /* ---------- PLAN ---------- */
 
     if (plan) {
 
@@ -200,8 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ---------- OPTIONS ---------- */
-
     if (options.length === 0) {
 
       selectedOptionsElement.textContent =
@@ -211,81 +191,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
       selectedOptionsElement.innerHTML =
         options
-          .map(option => {
-
-            return `
-              ${option.name}
-              (+${formatPrice(option.price)})
-            `;
-
-          })
+          .map(option =>
+            `${option.name} (+${formatPrice(option.price)})`
+          )
           .join("<br>");
 
     }
 
 
-    /* ---------- BUTTON ---------- */
-
-    updateAgreementButton();
+    updateButton();
 
   }
 
 
-  /* ==================================================
-     AGREEMENT BUTTON
-  ================================================== */
-
-  function updateAgreementButton() {
+  function updateButton() {
 
     if (!estimateButton) {
-
       return;
-
     }
 
 
     const plan =
       getSelectedPlan();
 
-
     const agreed =
       agreementCheckbox &&
       agreementCheckbox.checked;
 
-
     const customer =
       customerName &&
       customerName.value.trim() !== "";
-
 
     const email =
       customerEmail &&
       customerEmail.value.trim() !== "";
 
 
-    if (
-      plan &&
-      agreed &&
-      customer &&
-      email
-    ) {
-
-      estimateButton.disabled =
-        false;
-
-    } else {
-
-      estimateButton.disabled =
-        true;
-
-    }
+    estimateButton.disabled =
+      !(
+        plan &&
+        agreed &&
+        customer &&
+        email
+      );
 
   }
 
-
-  /* ==================================================
-     PLAN EVENT
-  ================================================== */
 
   planInputs.forEach(input => {
 
@@ -297,10 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* ==================================================
-     OPTION EVENT
-  ================================================== */
-
   optionInputs.forEach(input => {
 
     input.addEventListener(
@@ -311,24 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* ==================================================
-     AGREEMENT EVENT
-  ================================================== */
-
-  if (agreementCheckbox) {
-
-    agreementCheckbox.addEventListener(
-      "change",
-      updateAgreementButton
-    );
-
-  }
-
-
-  /* ==================================================
-     CUSTOMER EVENT
-  ================================================== */
-
   [
     customerName,
     shopName,
@@ -337,234 +266,244 @@ document.addEventListener("DOMContentLoaded", () => {
   ].forEach(input => {
 
     if (!input) {
-
       return;
-
     }
-
 
     input.addEventListener(
       "input",
-      updateAgreementButton
+      updateButton
     );
 
   });
 
 
-  /* ==================================================
-     CONFIRM ESTIMATE
-  ================================================== */
-
-  if (estimateButton) {
-
-    estimateButton.addEventListener(
-      "click",
-      () => {
-
-        const plan =
-          getSelectedPlan();
-
-        const options =
-          getSelectedOptions();
-
-        const total =
-          calculateTotal();
-
-
-        if (!plan) {
-
-          alert(
-            "プランを選択してください。"
-          );
-
-          return;
-
-        }
-
-
-        if (
-          !customerName ||
-          customerName.value.trim() === ""
-        ) {
-
-          alert(
-            "お客様名を入力してください。"
-          );
-
-          return;
-
-        }
-
-
-        if (
-          !customerEmail ||
-          customerEmail.value.trim() === ""
-        ) {
-
-          alert(
-            "メールアドレスを入力してください。"
-          );
-
-          return;
-
-        }
-
-
-        if (
-          !agreementCheckbox ||
-          !agreementCheckbox.checked
-        ) {
-
-          alert(
-            "お見積り内容を確認して同意してください。"
-          );
-
-          return;
-
-        }
-
-
-        /* ==========================================
-           CONTRACT NUMBER
-        ========================================== */
-
-        const now =
-          new Date();
-
-        const year =
-          now.getFullYear();
-
-        const month =
-          String(
-            now.getMonth() + 1
-          ).padStart(2, "0");
-
-        const day =
-          String(
-            now.getDate()
-          ).padStart(2, "0");
-
-        const random =
-          Math.floor(
-            1000 +
-            Math.random() * 9000
-          );
-
-
-        const contractNumber =
-          `HOMIC-${year}${month}${day}-${random}`;
-
-
-        /* ==========================================
-           SAVE ESTIMATE
-        ========================================== */
-
-        const estimateData = {
-
-          contractNumber,
-
-          customerName:
-            customerName.value.trim(),
-
-          shopName:
-            shopName
-              ? shopName.value.trim()
-              : "",
-
-          email:
-            customerEmail.value.trim(),
-
-          plan: {
-
-            name:
-              plan.name,
-
-            price:
-              plan.price
-
-          },
-
-          options,
-
-          total,
-
-          confirmedAt:
-            now.toISOString()
-
-        };
-
-
-        localStorage.setItem(
-
-          "homicEstimate",
-
-          JSON.stringify(
-            estimateData
-          )
-
-        );
-
-
-        /* ==========================================
-           SCREENSHOT / PAYMENT NOTICE
-        ========================================== */
-
-        alert(
-
-          "お見積り内容を確定しました。\n\n" +
-
-          `契約番号：${contractNumber}\n` +
-
-          `総支払額：${formatPrice(total)}\n\n` +
-
-          "この画面をスクリーンショットして保存してください。\n\n" +
-
-          "その後、HOMIC指定の方法でお支払いください。\n\n" +
-
-          "HOMIC側で入金を確認後、確認メールをお送りします。"
-
-        );
-
-
-        /* ==========================================
-           SHOW CONFIRMED STATE
-        ========================================== */
-
-        estimateButton.textContent =
-          "お見積り確定済み ✓";
-
-        estimateButton.disabled =
-          true;
-
-
-        agreementCheckbox.disabled =
-          true;
-
-
-        /* ==========================================
-           STORE CONFIRMATION STATE
-        ========================================== */
-
-        localStorage.setItem(
-
-          "homicEstimateConfirmed",
-
-          "true"
-
-        );
-
-      }
-
+  if (agreementCheckbox) {
+
+    agreementCheckbox.addEventListener(
+      "change",
+      updateButton
     );
 
   }
 
 
-  /* ==================================================
-     INITIALIZE
-  ================================================== */
+  estimateButton.addEventListener(
+    "click",
+    async () => {
+
+      const plan =
+        getSelectedPlan();
+
+      const options =
+        getSelectedOptions();
+
+      const total =
+        calculateTotal();
+
+
+      if (!plan) {
+
+        alert(
+          "プランを選択してください。"
+        );
+
+        return;
+
+      }
+
+
+      if (
+        !customerName.value.trim()
+      ) {
+
+        alert(
+          "お客様名を入力してください。"
+        );
+
+        return;
+
+      }
+
+
+      if (
+        !customerEmail.value.trim()
+      ) {
+
+        alert(
+          "メールアドレスを入力してください。"
+        );
+
+        return;
+
+      }
+
+
+      if (
+        !agreementCheckbox.checked
+      ) {
+
+        alert(
+          "お見積り内容を確認してください。"
+        );
+
+        return;
+
+      }
+
+
+      const now =
+        new Date();
+
+
+      const contractNumber =
+        "HOMIC-" +
+        now.getFullYear() +
+        String(
+          now.getMonth() + 1
+        ).padStart(2, "0") +
+        String(
+          now.getDate()
+        ).padStart(2, "0") +
+        "-" +
+        Math.floor(
+          1000 +
+          Math.random() * 9000
+        );
+
+
+      const estimateData = {
+
+        contractNumber,
+
+        customerName:
+          customerName.value.trim(),
+
+        shopName:
+          shopName.value.trim(),
+
+        email:
+          customerEmail.value.trim(),
+
+        plan: {
+
+          name:
+            plan.name,
+
+          price:
+            plan.price
+
+        },
+
+        options,
+
+        total,
+
+        confirmedAt:
+          now.toISOString()
+
+      };
+
+
+      estimateButton.disabled =
+        true;
+
+      estimateButton.textContent =
+        "送信中…";
+
+
+      try {
+
+        await fetch(
+          API_URL,
+          {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+
+              "Content-Type":
+                "text/plain;charset=utf-8"
+
+            },
+
+            body:
+              JSON.stringify(
+                estimateData
+              )
+
+          }
+        );
+
+
+        localStorage.setItem(
+          "homicEstimate",
+          JSON.stringify(
+            estimateData
+          )
+        );
+
+
+        localStorage.setItem(
+          "homicEstimateConfirmed",
+          "true"
+        );
+
+
+        alert(
+
+          "お見積り内容を確定しました。\n\n" +
+
+          "契約番号：\n" +
+          contractNumber +
+          "\n\n" +
+
+          "総支払額：\n" +
+          formatPrice(total) +
+          "\n\n" +
+
+          "この画面をスクリーンショットして保存してください。\n\n" +
+
+          "その後、HOMIC指定の方法でお支払いください。\n\n" +
+
+          "入金確認後、HOMICから確認メールをお送りします。"
+
+        );
+
+
+        estimateButton.textContent =
+          "お見積り確定済み ✓";
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        alert(
+
+          "送信中にエラーが発生しました。\n\n" +
+
+          "画面の内容をスクリーンショットして保存し、HOMICまでお問い合わせください。"
+
+        );
+
+
+        estimateButton.disabled =
+          false;
+
+        estimateButton.textContent =
+          "見積内容を確定する";
+
+      }
+
+    }
+  );
+
 
   updateEstimate();
-
 
 });
